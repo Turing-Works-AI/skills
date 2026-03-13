@@ -1,0 +1,18 @@
+{
+  "name": "Turing-Works-AI",
+  "owner": {
+    "name": "Turing Works"
+  },
+  "metadata": {
+    "description": "Turing Works custom skills for Claude Code",
+    "homepage": "https://github.com/Turing-Works-AI/skills"
+  },
+  "plugins": [
+    {
+      "name": "turing-works-skills",
+      "version": "1.0.0",
+      "source": ".",
+      "description": "Turing Works brand standards, slide craft, and client delivery conventions"
+    }
+  ]
+}
