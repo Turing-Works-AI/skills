@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/alasdairbell/Documents/GitHub/skills/*.md)",
+      "Read(//Users/alasdairbell/.claude/plugins/**)"
+    ]
+  }
+}
