@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(ls /Users/alasdairbell/Documents/GitHub/skills/*.md)",
-      "Read(//Users/alasdairbell/.claude/plugins/**)"
+      "Read(//Users/alasdairbell/.claude/plugins/**)",
+      "Bash(claude plugin:*)"
     ]
   }
 }
