@@ -11,7 +11,7 @@
     {
       "name": "turing-works-skills",
       "version": "1.0.0",
-      "source": ".",
+      "source": "./plugin",
       "description": "Turing Works brand standards, slide craft, and client delivery conventions"
     }
   ]
