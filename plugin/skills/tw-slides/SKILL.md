@@ -289,6 +289,36 @@ Use a **Ghost Deck** to plan this before building:
 
 ---
 
+### MBB Formatting Discipline
+
+These habits separate polished MBB output from amateur slides:
+
+| Discipline | What it means |
+|-----------|--------------|
+| **Be meticulous** | Hold an extremely high standard on every bullet, every spacing, every alignment, every detail — even when someone else produced the first draft |
+| **Consistent element positioning** | The same element (title, source line, page number, logo) must appear at the exact same position across all slides. Duplicate a slide and modify content, or copy-paste elements to preserve coordinates |
+| **Bold for emphasis** | Use bold to draw the eye to the single most critical phrase or number in each text block — sparingly, never everywhere |
+| **Consistent format scheme** | Lock in one colour, font, and size palette for the entire deck. Every deviation from the scheme erodes trust |
+| **Alignment and margins** | Maintain consistent top–bottom–left–right alignment. Leave a small margin around all slide edges — no content should bleed to the edge or appear cut off |
+| **Line spacing** | Add deliberate spacing between bullets and paragraphs to improve scannability. Dense walls of text signal a poorly structured slide |
+
+---
+
+### Sticker Conventions
+
+Stickers appear at the top-right of a slide and signal the maturity/reliability of its content:
+
+| Sticker | Meaning |
+|---------|--------|
+| **For Discussion** | Data or statements are debatable and need audience input before being finalised |
+| **Preliminary** / **Highly preliminary** | Analysis is not yet complete; conclusions may shift as more data arrives |
+| **Indicative** | Numbers are directionally correct but not precise — they give the right picture without guaranteeing exact figures |
+| **Illustrative** | Data is hypothetical, used to demonstrate relationships between variables, not to report actuals |
+
+If no sticker is present, the slide's content is treated as final and reviewed.
+
+---
+
 ## Pre-Flight Checklist
 
 Run through this before finalising any deck:
@@ -316,3 +346,84 @@ Run through this before finalising any deck:
 - [ ] Direct, active, specific language — no filler
 - [ ] Source lines on all claim slides
 - [ ] Passes tone check: confident, not salesy
+
+---
+
+## PART 3: LANGUAGE, LOGIC & WRITING STANDARDS
+
+### UK / Australian English Spelling
+
+All Turing Works slides use **UK/Australian English** spelling conventions. Never use American English spellings.
+
+**Spelling rules:**
+- **-ise** not -ize (organise, optimise, minimise — not organize, optimize, minimize)
+- **-yse** not -yze (analyse, paralyse — not analyze, paralyze)
+- **-our** not -or (colour, favour, behaviour — not color, favor, behavior)
+- **-re** not -er (centre, fibre, metre — not center, fiber, meter)
+- **-lled / -lling** not -led / -ling (modelled, travelling — double the consonant)
+- **-ogue** not -og (dialogue, catalogue — not dialog, catalog)
+- **-ence** not -ense for nouns (licence, defence — not license, defense)
+- **programme** not program (except when referring to software)
+- **Dates**: day before month — "13 March 2026" not "March 13, 2026"
+- **Quotation marks**: single quotes ('like this') for primary quotation; double quotes only for quotes within quotes
+
+If in doubt, default to the Macquarie Dictionary (Australian) or Oxford English Dictionary (UK).
+
+---
+
+### GMAT-Grade Grammar Rules
+
+Slide text must meet GMAT sentence-correction standards. These rules are non-negotiable — every sentence on a slide must pass them.
+
+#### Sentence Structure
+- **Parallelism**: items in a list, comparison, or series must share identical grammatical form. Bad: "We will assess risk, reducing costs, and the optimisation of processes." Good: "We will assess risk, reduce costs, and optimise processes."
+- **Modifiers**: place modifiers directly next to the word they modify. Bad: "Using advanced analytics, the market was analysed." Good: "Using advanced analytics, we analysed the market." Dangling and misplaced modifiers are never acceptable.
+- **Subject–verb agreement**: the verb must agree with the true subject, not an intervening phrase. Bad: "The portfolio of investments are growing." Good: "The portfolio of investments is growing."
+
+#### Comparisons
+- **Like vs. such as**: "like" draws a comparison (similarity); "such as" introduces examples. Bad: "Markets like Australia and the UK…" (if you mean those specific markets). Good: "Markets such as Australia and the UK…"
+- **Compare parallel structures**: compare equivalent things. Bad: "Revenue in Q1 was higher than Q2." Good: "Revenue in Q1 was higher than revenue in Q2" or "…than in Q2."
+- **Fewer vs. less**: "fewer" for countable items; "less" for uncountable quantities.
+
+#### Verb & Tense Discipline
+- **Active voice** over passive: "We identified three risks" not "Three risks were identified."
+- **Consistent tense**: do not shift between past and present within the same slide unless the time reference genuinely changes.
+- **Subjunctive for recommendations**: "We recommend that the team adopt…" not "adopts."
+
+#### Pronoun Clarity
+- Every pronoun must have an unambiguous antecedent. Bad: "The team reviewed the report and updated it, which improved it." Good: "The team reviewed the report, updated the data, and improved overall accuracy."
+- Avoid "this" or "it" without a clear noun referent — restate the noun.
+
+#### Concision Rules
+- Eliminate redundancy: "future plans" → "plans"; "end result" → "result"; "period of time" → "period"
+- Eliminate filler: "in order to" → "to"; "due to the fact that" → "because"; "at this point in time" → "now"
+- Eliminate weak constructions: "There are three factors that…" → "Three factors…"; "It is important to note that…" → delete entirely or just state the point
+- One idea per sentence. If a sentence has two clauses joined by a comma, check whether it should be two sentences or restructured.
+
+---
+
+### Concise, Information-Rich Verbal Reasoning
+
+Slide text operates under extreme space constraints. Every sentence must maximise information density while remaining instantly clear. Apply these principles:
+
+#### The Density Test
+For every sentence, ask: "Can I say this in fewer words without losing meaning?" If yes, rewrite. The goal is the highest ratio of insight to word count.
+
+| Verbose (REJECT) | Dense (ACCEPT) |
+|-------------------|----------------|
+| "The company has been experiencing a significant decline in revenue over the past three years" | "Revenue declined 23% over 2023–2025" |
+| "There is an opportunity to improve operational efficiency by implementing automation" | "Automation could lift operational efficiency by ~15%" |
+| "It is important to consider the fact that customer churn has been increasing" | "Customer churn rose from 8% to 14% (FY24–FY25)" |
+| "We believe that the recommended approach would be to focus on digital channels" | "Prioritise digital channels" |
+
+#### Principles
+- **Lead with numbers**: quantify wherever possible — percentages, dollar values, timeframes, magnitudes. "Significant growth" is empty; "18% CAGR" is meaningful.
+- **One claim per sentence**: if a sentence makes two points, split it. Each sentence should be independently scannable.
+- **Front-load the insight**: place the most important word or number at the start of the sentence, not buried at the end.
+- **Eliminate hedge words**: remove "somewhat", "relatively", "fairly", "quite", "arguably" unless genuine uncertainty must be signalled (in which case, use a Sticker instead).
+- **Use strong verbs**: "rose", "fell", "drove", "outpaced", "exceeded", "contracted" — not "went up", "went down", "was responsible for".
+- **Noun stacks over clauses**: "Q3 revenue growth" not "the growth of revenue that occurred in Q3."
+- **Implication, not narration**: don't describe what happened and then explain why it matters separately. Combine them: "Churn rose to 14%, eroding $2.3M in annual recurring revenue."
+
+#### The "So What?" Rule
+Every sentence on a slide must pass the "So what?" test. If a statement is purely descriptive with no implication for the audience, it does not belong on the slide. Either add the implication or move the statement to the appendix.
