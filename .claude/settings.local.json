@@ -3,7 +3,26 @@
     "allow": [
       "Bash(ls /Users/alasdairbell/Documents/GitHub/skills/*.md)",
       "Read(//Users/alasdairbell/.claude/plugins/**)",
-      "Bash(claude plugin:*)"
+      "Bash(claude plugin:*)",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -m venv /tmp/pptx_env)",
+      "Bash(source /tmp/pptx_env/bin/activate)",
+      "Bash(python3 /tmp/extract_pptx.py)",
+      "Bash(osascript -e 'tell application \"\"Keynote\"\":*)",
+      "Bash(osascript:*)",
+      "Bash(python3 -c \"import pptx2pdf; print\\(''installed''\\)\")",
+      "Bash(mdfind \"kMDItemCFBundleIdentifier == ''''com.microsoft.Powerpoint''''\")",
+      "Bash(brew install:*)",
+      "Bash(soffice --headless --convert-to pdf --outdir \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/content-1col/\" \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/content-1col/example.pptx\")",
+      "Bash(python3 -c \"import pptx; print\\(pptx.__file__\\)\")",
+      "Bash(/Library/Frameworks/Python.framework/Versions/3.13/bin/pip3 install:*)",
+      "Bash(tee /tmp/pptx_output.json)",
+      "Bash(soffice --headless --convert-to pdf --outdir \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/objectives/\" \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/objectives/example.pptx\")",
+      "Bash(ls /Users/alasdairbell/Downloads/*.pptx)",
+      "Bash(ls /Users/alasdairbell/Downloads/*.PPTX)",
+      "Bash(python3 extract_pptx.py)",
+      "Bash(soffice --headless --convert-to pdf --outdir \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/workplan/\" \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/workplan/example.pptx\")"
     ]
   }
 }

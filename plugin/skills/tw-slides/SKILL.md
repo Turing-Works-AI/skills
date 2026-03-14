@@ -13,6 +13,38 @@ Read both sections before building any deck. The brand section tells you *how it
 
 ---
 
+## SKILL STRUCTURE
+
+This skill spans multiple files. Read the relevant ones before building a slide.
+
+```
+tw-slides/
+├── SKILL.md              ← You are here. Top-level brand + craft rules.
+├── constants.md           ← Shared visual constants (colours, typography, grid)
+│
+├── content/               ← WHAT to write on each slide type
+│   ├── situation.md       ← Action title patterns, body structure, bold rules
+│   ├── objectives.md      ← Focus area structure, subtitle formula
+│   └── workplan.md        ← Verb progression, deliverables, cell bullets
+│
+├── components/            ← HOW each slide looks (positions, shapes, code)
+│   ├── situation/spec.md  ← Branded left panel + right content area
+│   ├── objectives/spec.md ← Left panel + combined title/body text box
+│   ├── workplan/spec.md   ← Week × workstream matrix grid
+│   └── table-3col/spec.md ← Generic 3-column table with summary row
+│
+└── templates/
+    └── brief-template.yaml ← Copy-paste YAML briefing format
+```
+
+**When building a specific slide type:**
+1. Read this file (SKILL.md) for universal brand and craft rules
+2. Read the relevant `content/*.md` for what to write
+3. Read the relevant `components/*/spec.md` for exact visual placement
+4. Reference `constants.md` for shared values
+
+---
+
 ## WORKING MODE: ONE SLIDE AT A TIME
 
 Slides are built and edited individually, not as a full deck in one pass. Before starting any slide, orient yourself:

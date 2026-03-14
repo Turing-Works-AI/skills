@@ -1,0 +1,51 @@
+# TW Slides — Brief Template
+# Copy and fill in for each slide you want to create.
+
+# --- Situation (base slide with left panel + right content area) ---
+slide: 1
+title: "Action title as a conclusion statement, not a topic label"
+layout: situation
+section_label: "Situation"
+section_subtitle: "Understanding the client's\ncontext and AI ambitions"
+body_content: |
+  Main paragraph content goes here. Use **bold** markers for key terms
+  that should be emphasised. Keep to 2-3 sentences maximum.
+source: "Source: Description of source (Person Name, Date)"
+logo_path: ""  # Optional: path to logo/icon PNG
+
+# --- Boxes-3up ---
+# slide: 2
+# title: "Action title as a conclusion"
+# layout: boxes-3up
+# section_label: "Situation"
+# boxes:
+#   - heading: "Box 1 heading"
+#     content: |
+#       - Bullet point one
+#       - Bullet point two
+#   - heading: "Box 2 heading"
+#     content: |
+#       - Bullet point one
+#       - Bullet point two
+#   - heading: "Box 3 heading"
+#     content: |
+#       - Bullet point one
+#       - Bullet point two
+# source: "Source: Description"
+
+# --- Two-column ---
+# slide: 3
+# title: "Action title as a conclusion"
+# layout: two-column
+# section_label: "Executive summary"
+# left_column:
+#   type: numbered-steps
+#   items:
+#     - heading: "Step heading"
+#       detail: "Step detail text"
+# right_column:
+#   type: metrics
+#   items:
+#     - metric: "70%"
+#       label: "Metric description"
+# source: "Source: Description"
