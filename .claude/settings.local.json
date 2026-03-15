@@ -22,7 +22,8 @@
       "Bash(ls /Users/alasdairbell/Downloads/*.pptx)",
       "Bash(ls /Users/alasdairbell/Downloads/*.PPTX)",
       "Bash(python3 extract_pptx.py)",
-      "Bash(soffice --headless --convert-to pdf --outdir \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/workplan/\" \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/workplan/example.pptx\")"
+      "Bash(soffice --headless --convert-to pdf --outdir \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/workplan/\" \"/Users/alasdairbell/Documents/GitHub/skills/plugin/skills/tw-slides/components/workplan/example.pptx\")",
+      "Bash(git fetch:*)"
     ]
   }
 }
