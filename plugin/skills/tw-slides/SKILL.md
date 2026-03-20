@@ -459,3 +459,47 @@ For every sentence, ask: "Can I say this in fewer words without losing meaning?"
 
 #### The "So What?" Rule
 Every sentence on a slide must pass the "So what?" test. If a statement is purely descriptive with no implication for the audience, it does not belong on the slide. Either add the implication or move the statement to the appendix.
+
+---
+
+## THE TOOTHBRUSH TEST
+
+Run this when the deck feels ready. It is a final consistency and readability pass — slower and more granular than the Pre-Flight Checklist. Go slide by slide.
+
+### 1. Font size
+- **Target: 10pt minimum.** No text may be smaller than 8pt under any circumstances. If a text box is forcing sub-8pt text, cut content — never shrink the font.
+- Common offenders: source lines, footnotes, table cells, labels inside charts.
+
+### 2. Bullet point punctuation
+- **Bullets that are not full sentences do not get a full stop.** Bullets that are full sentences do.
+- Apply this rule consistently across the entire deck. Mixed usage within a slide or across slides is not acceptable.
+- Nested bullets follow the same rule as their parent level.
+
+### 3. Capitalisation
+- **Action Titles and headings**: sentence case throughout — no Title Case.
+- **Terminology**: if a term is capitalised on one slide (e.g. "People Ops", "Customer Care"), it must be capitalised the same way on every slide. Scan all occurrences before finalising.
+
+### 4. Hyphenation
+- Pick a form for every hyphenated term and lock it in. "AI-powered" and "AI powered" cannot both appear in the same deck.
+- Check compound modifiers, product names, and any term that appeared across multiple slides.
+
+### 5. UK/AUS spelling
+- Verify all spelling follows UK/Australian conventions throughout (see Part 3 for full rules).
+- Common drift points: -ise/-ize, -our/-or, programme/program, analyse/analyze.
+
+### 6. Numbers and claims consistency
+- If a statistic or claim appears more than once, verify it is stated identically each time — same number, same units, same framing.
+- Do not express the same figure as "3x" on one slide and "300%" on another without explicit reason.
+- Cross-check any number that feeds into the executive summary against its source slide.
+
+### 7. Box and element alignment
+- Every text box, shape, and icon should sit on the same invisible grid. Spot misalignments by viewing the slide at full screen and scanning row by row.
+- Recurring elements (slide number badge, source line, section label) must be at exactly the same position on every slide.
+
+### 8. Slide-to-slide narrative flow
+- Read only the Action Titles in sequence, top to bottom. They must chain into a coherent argument without the body of each slide.
+- Each slide should introduce or deepen an idea that the next slide elaborates. A reader should never ask "why are we talking about this now?" — the transition must feel inevitable.
+- This is the horizontal layer of the Pyramid Principle: conclusion → arguments → evidence, carried across slides, not just within them.
+- If two adjacent slides feel disconnected, either add a bridging sentence to one Action Title, reorder the slides, or introduce a section divider that signals the topic shift.
+
+**The test passes when**: Action Titles read aloud as a single coherent argument; punctuation, capitalisation, hyphenation, and numbers are identical across equivalent instances; no text is illegible; and all elements sit on a consistent grid.
