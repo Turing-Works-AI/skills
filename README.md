@@ -23,6 +23,10 @@ skills/
 | `tw-slides` | Creating, editing, or reviewing Turing Works slide decks, proposals, pitch decks, or any branded output. Also triggers on "make it on-brand", "Turing Works style", "ghost deck", "action title". |
 | `polish-linkedin-post` | Refining a LinkedIn post or professional content — strengthens hooks, checks credibility, flags LLM-isms, improves flow. |
 | `loom-to-notion` | Converting a Loom video transcript into a structured "How To" Notion page. |
+| `writing-that-works` | Writing, editing, reviewing, or improving any business communication — emails, memos, presentations, proposals, reports, resumes, speeches. Also triggers on "make this better", "clean this up", or "help me write". |
+| `proposal-letter` | Converting a Turing Works slide deck or proposal into a BCG-style Word document (.docx). Triggers on "letter version", "word version of the deck", "make this a doc", "BCG format". |
+| `tw-agreements` | Generating a Turing Works client engagement agreement as a .docx. Triggers on "agreement", "contract", "engagement letter", "SOW", "statement of work". |
+| `tw-data-access-request` | Creating a branded data access request document for a new client engagement. Triggers on "DAR", "data access", "access request", "onboarding doc", "what access do we need". |
 
 ---
 
