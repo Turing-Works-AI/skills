@@ -122,6 +122,10 @@ After delivering the slide, briefly note:
 | Headings on light BG | `#072E45` or `#0E425B` |
 | Muted / source / caption text | `#518C94` or `#B8AD90` |
 
+#### Prohibited colours
+- **Orange — never use.** Orange is not part of the Turing Works palette. It has appeared in past decks carried over from other clients' source material. If any source slide contains orange, replace it with the nearest on-brand colour (Teal `#518C94` or Aqua `#ADCFC9` for accents; Deep Teal `#0E425B` for dark elements)
+- Any colour not listed in the palette tables above
+
 #### Structural Colour Rule ("Sandwich")
 - **Title slide**: Dark (`#072E45`) — white and cream text
 - **Content slides**: Light (`#F9F9F7` or white) — dark text, teal accents
@@ -363,6 +367,7 @@ Run through this before finalising any deck:
 - [ ] Slide number badges on all content slides
 - [ ] No underline accents beneath titles
 - [ ] Colours from palette only — no off-brand defaults
+- [ ] No orange anywhere — check every shape, icon, and text colour
 
 **Content**
 - [ ] Executive summary slide present and self-contained

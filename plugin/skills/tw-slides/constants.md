@@ -43,6 +43,9 @@ Shared values derived from component specs. These are the canonical source — i
 | Teal | `#518C94` | Accent dividers, action title text, bottom bars, section markers |
 | Warm Tan | `#CEC3A1` | Tertiary neutral |
 
+### Prohibited colours
+- **Orange** — never use. Not part of the Turing Works palette. Has appeared in decks copied from other clients' source material. Replace any orange with Teal `#518C94` or Aqua `#ADCFC9` (accents) or Deep Teal `#0E425B` (dark elements)
+
 ### Text colours
 
 | Context | Hex |

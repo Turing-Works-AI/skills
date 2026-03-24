@@ -69,15 +69,19 @@ When converting a slide deck to this format, map slides to numbered sections. Th
 | Deliverables | "Deliverables" | Sub-headers for each deliverable stream with bullets |
 | Workplan (phased) | "Phase 1 Workplan" or similar | Part A / Part B structure with bullets; include deliverables callout |
 | Workplan (weekly) | "Full workplan" | Convert to a table (Module × Week grid) |
+| Resourcing / project team | "Phase N resourcing, workplan, and project team" or similar | **Critical — tied to contract and fee negotiations. Never omit or summarise.** Structure: (1) prose paragraph on why the team is needed and overall engagement shape; (2) prose paragraph naming who leads and who supports; (3) bold label "Proposed resourcing:" followed by bullets breaking down team by week/phase (e.g. "Weeks 1–2: X and Y ramp up…", "Weeks 3–10: full team of N"); (4) prose paragraphs on support model (sessions per week, review cadence, continuity rationale). Preserve all names, week ranges, and staffing numbers exactly from the source |
 | Workshop structure | "Workshop structure" | Goal / Team / Duration as bold-label bullets; list known issues |
 | Ways of working | "How we will work together" | Analysis → Solution → Implementation with bullets under each |
 | Why us | "Why Turing Works is the right partner" | Bold capability name + plain description bullets |
 | Team | "Project team" | Table with Leadership / Sponsor / Project Team columns |
 | Case studies | "Previous experience" | Bold case name, then one-paragraph summary per case |
-| Next steps | "Next steps" | Bold action + plain description bullets |
 | Closing | Sign-off paragraph | Address stakeholders by first name |
 
 Not every deck will have all these sections. Some decks will have sections not listed here. Use judgment — the principle is that every substantive slide becomes a section, and the letter should be readable as a standalone document.
+
+**Numbering rule**: Section numbers must be sequential with no gaps (1, 2, 3, 4, 5, 6…). Never skip numbers — if you map 10 sections, they are numbered 1–10 regardless of how slides are numbered in the source deck.
+
+**Deliverables/workplan alignment rule**: The deliverables listed in the Deliverables section must exactly match what is delivered in the Workplan. If the engagement is Phase 1 only, both sections must reflect Phase 1 deliverables only — do not carry over multi-phase deliverables from the deck if the scope is narrower. Cross-check before writing.
 
 ---
 
@@ -91,6 +95,7 @@ Not every deck will have all these sections. Some decks will have sections not l
 
 ### What to adapt
 - Slides often use fragments; in the letter, ensure each bullet is a grammatically complete thought where needed, but don't over-edit — preserve the concise slide style
+- **Resourcing and project team sections**: write as full prose paragraphs, not bullets. These sections describe team composition, ways of working, and scheduling in narrative form — convert slide fragments into complete sentences and flowing paragraphs
 - Slide action titles become section context sentences or bold sub-headers
 - Convert visual elements (process flows, team grids) into tables
 - The "To discuss" labels from slides can be noted as italicised parentheticals
@@ -99,6 +104,7 @@ Not every deck will have all these sections. Some decks will have sections not l
 - Appendix slides (unless explicitly requested)
 - Decorative elements, icons, images (unless the user asks to include them)
 - Slide numbers and section markers (replaced by the numbered section structure)
+- **Next steps slides** — always exclude. The proposal letter ends with the sign-off paragraph
 
 ---
 
@@ -232,5 +238,8 @@ Before delivering the document:
 - [ ] Source citations preserved from the original deck
 - [ ] Sign-off addresses stakeholders by first name
 - [ ] No brand colours in body text (black and white only)
-- [ ] Appendix slides excluded unless requested
+- [ ] Appendix slides and Next Steps slides excluded
+- [ ] Section numbers are sequential with no gaps
+- [ ] Deliverables section matches Workplan scope exactly (Phase 1 only if Phase 1 only)
+- [ ] Resourcing section included with full team names, week ranges, staffing numbers, and support model
 - [ ] File validates with no errors
