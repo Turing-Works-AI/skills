@@ -1,0 +1,20 @@
+{
+  "invoice_code": "BAL0005",
+  "client_name": "Ballpoint",
+  "client_address": ["14 Soho Square", "London W1D 3QF", "United Kingdom"],
+  "invoice_date": "2026-03-28",
+  "bank_reference": "140002",
+  "payment_link": "https://wise.com/pay/r/h_test2",
+  "line_items": [
+    {
+      "item": "Workshop Fee",
+      "description": "AI Operations Workshop",
+      "amount_inc_gst": 2750.00
+    },
+    {
+      "item": "Automation Build",
+      "description": "Automation Build and Configuration - March 2026",
+      "amount_inc_gst": 8250.00
+    }
+  ]
+}

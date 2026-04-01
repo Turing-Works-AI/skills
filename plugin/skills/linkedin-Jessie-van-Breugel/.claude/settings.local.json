@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Notion_Turing_Works__notion-fetch",
+      "mcp__claude_ai_Notion_Turing_Works__notion-search"
+    ]
+  }
+}

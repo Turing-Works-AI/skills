@@ -1,0 +1,53 @@
+{
+  "eval_id": 2,
+  "eval_name": "multi-item-invoice",
+  "variant": "without_skill",
+  "expectations": [
+    {
+      "text": "docx_file_generated",
+      "passed": true,
+      "evidence": "Found: 20260328_Invoice_BAL0005.docx"
+    },
+    {
+      "text": "invoice_code_in_document",
+      "passed": true,
+      "evidence": "'BAL0005' found in document"
+    },
+    {
+      "text": "client_name_in_billto",
+      "passed": true,
+      "evidence": "'Ballpoint' found in document"
+    },
+    {
+      "text": "two_line_items_present",
+      "passed": true,
+      "evidence": "Found 2 line items (expected 2)"
+    },
+    {
+      "text": "total_amount_correct",
+      "passed": true,
+      "evidence": "'$11,000.00' found in document"
+    },
+    {
+      "text": "item1_gst_correct",
+      "passed": true,
+      "evidence": "'$2,500.00' found in document"
+    },
+    {
+      "text": "item2_gst_correct",
+      "passed": true,
+      "evidence": "'$7,500.00' found in document"
+    },
+    {
+      "text": "payment_link_present",
+      "passed": true,
+      "evidence": "'wise.com/pay/r/h_test2' found in document"
+    },
+    {
+      "text": "bank_reference_present",
+      "passed": true,
+      "evidence": "'140002' found in document"
+    }
+  ],
+  "pass_rate": "9/9"
+}

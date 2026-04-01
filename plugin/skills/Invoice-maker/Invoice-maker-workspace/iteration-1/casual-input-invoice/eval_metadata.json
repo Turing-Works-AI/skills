@@ -1,0 +1,55 @@
+{
+  "eval_id": 3,
+  "eval_name": "casual-input-invoice",
+  "prompt": "invoice for TCP please - TCP0003. They're at Unit 26, 4a Bachell Ave, Lidcombe NSW 2141. Two items: march retainer $3,300 and data pipeline work $7,700 (all inc GST). wise link https://wise.com/pay/r/h_test3 ref 140003",
+  "assertions": [
+    {
+      "name": "docx_file_generated",
+      "description": "A .docx file was created in the outputs directory",
+      "type": "file_exists",
+      "check": "glob:*.docx"
+    },
+    {
+      "name": "invoice_code_in_document",
+      "description": "Invoice code TCP0003 appears in the document text",
+      "type": "content_contains",
+      "check": "TCP0003"
+    },
+    {
+      "name": "two_line_items_present",
+      "description": "Two distinct line items appear in the invoice table",
+      "type": "custom",
+      "check": "Count line item rows in the items table — should be exactly 2"
+    },
+    {
+      "name": "total_amount_correct",
+      "description": "Total including GST is $11,000.00 (3300+7700)",
+      "type": "content_contains",
+      "check": "$11,000.00"
+    },
+    {
+      "name": "descriptions_wordsmithed",
+      "description": "Line item descriptions are professional — not raw 'march retainer' or 'data pipeline work' verbatim from the user's casual input",
+      "type": "custom",
+      "check": "Descriptions should be title-cased and professional, e.g. 'Monthly Retainer' not 'march retainer'"
+    },
+    {
+      "name": "payment_link_present",
+      "description": "Wise payment URL appears in the document",
+      "type": "content_contains",
+      "check": "wise.com/pay/r/h_test3"
+    },
+    {
+      "name": "bank_reference_present",
+      "description": "Bank reference 140003 appears in the document",
+      "type": "content_contains",
+      "check": "140003"
+    },
+    {
+      "name": "client_address_present",
+      "description": "Client address includes Lidcombe",
+      "type": "content_contains",
+      "check": "Lidcombe"
+    }
+  ]
+}

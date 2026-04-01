@@ -1,0 +1,48 @@
+{
+  "eval_id": 3,
+  "eval_name": "casual-input-invoice",
+  "variant": "with_skill",
+  "expectations": [
+    {
+      "text": "docx_file_generated",
+      "passed": true,
+      "evidence": "Found: 20260328_Invoice_TCP0003.docx"
+    },
+    {
+      "text": "invoice_code_in_document",
+      "passed": true,
+      "evidence": "'TCP0003' found in document"
+    },
+    {
+      "text": "two_line_items_present",
+      "passed": true,
+      "evidence": "Found 2 line items (expected 2)"
+    },
+    {
+      "text": "total_amount_correct",
+      "passed": true,
+      "evidence": "'$11,000.00' found in document"
+    },
+    {
+      "text": "descriptions_wordsmithed",
+      "passed": true,
+      "evidence": "Descriptions appear wordsmithed"
+    },
+    {
+      "text": "payment_link_present",
+      "passed": true,
+      "evidence": "'wise.com/pay/r/h_test3' found in document"
+    },
+    {
+      "text": "bank_reference_present",
+      "passed": true,
+      "evidence": "'140003' found in document"
+    },
+    {
+      "text": "client_address_present",
+      "passed": true,
+      "evidence": "'Lidcombe' found in document"
+    }
+  ],
+  "pass_rate": "8/8"
+}

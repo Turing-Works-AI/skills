@@ -1,0 +1,61 @@
+{
+  "eval_id": 2,
+  "eval_name": "multi-item-invoice",
+  "prompt": "I need to bill Ballpoint for two things - the workshop we ran ($2,750 inc GST) and the automation build for March ($8,250 inc GST). Invoice code BAL0005. Payment link is https://wise.com/pay/r/h_test2, reference 140002. Address: 14 Soho Square, London W1D 3QF, United Kingdom.",
+  "assertions": [
+    {
+      "name": "docx_file_generated",
+      "description": "A .docx file was created in the outputs directory",
+      "type": "file_exists",
+      "check": "glob:*.docx"
+    },
+    {
+      "name": "invoice_code_in_document",
+      "description": "Invoice code BAL0005 appears in the document text",
+      "type": "content_contains",
+      "check": "BAL0005"
+    },
+    {
+      "name": "client_name_in_billto",
+      "description": "Client name 'Ballpoint' appears in the document",
+      "type": "content_contains",
+      "check": "Ballpoint"
+    },
+    {
+      "name": "two_line_items_present",
+      "description": "Two distinct line items appear in the invoice table",
+      "type": "custom",
+      "check": "Count line item rows in the items table — should be exactly 2"
+    },
+    {
+      "name": "total_amount_correct",
+      "description": "Total including GST is $11,000.00 (2750+8250)",
+      "type": "content_contains",
+      "check": "$11,000.00"
+    },
+    {
+      "name": "item1_gst_correct",
+      "description": "Workshop ex-GST is $2,500.00 (2750/1.1)",
+      "type": "content_contains",
+      "check": "$2,500.00"
+    },
+    {
+      "name": "item2_gst_correct",
+      "description": "Automation build ex-GST is $7,500.00 (8250/1.1)",
+      "type": "content_contains",
+      "check": "$7,500.00"
+    },
+    {
+      "name": "payment_link_present",
+      "description": "Wise payment URL appears in the document",
+      "type": "content_contains",
+      "check": "wise.com/pay/r/h_test2"
+    },
+    {
+      "name": "bank_reference_present",
+      "description": "Bank reference 140002 appears in the document",
+      "type": "content_contains",
+      "check": "140002"
+    }
+  ]
+}

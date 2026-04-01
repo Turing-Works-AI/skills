@@ -1,0 +1,55 @@
+{
+  "eval_id": 1,
+  "eval_name": "single-item-invoice",
+  "prompt": "Create an invoice for Lyka - LYK0003, for March AI automation consulting work. $5,500 inc GST. Wise link: https://wise.com/pay/r/h_test1. Reference 140001. Their address is Level 5, 100 Harris St, Pyrmont NSW 2009.",
+  "assertions": [
+    {
+      "name": "docx_file_generated",
+      "description": "A .docx file was created in the outputs directory",
+      "type": "file_exists",
+      "check": "glob:*.docx"
+    },
+    {
+      "name": "invoice_code_in_document",
+      "description": "Invoice code LYK0003 appears in the document text",
+      "type": "content_contains",
+      "check": "LYK0003"
+    },
+    {
+      "name": "client_name_in_billto",
+      "description": "Client name 'Lyka' appears in the document",
+      "type": "content_contains",
+      "check": "Lyka"
+    },
+    {
+      "name": "gst_ex_amount_correct",
+      "description": "Ex-GST amount is $5,000.00 (5500/1.1)",
+      "type": "content_contains",
+      "check": "$5,000.00"
+    },
+    {
+      "name": "total_amount_correct",
+      "description": "Total including GST is $5,500.00",
+      "type": "content_contains",
+      "check": "$5,500.00"
+    },
+    {
+      "name": "payment_link_present",
+      "description": "Wise payment URL appears in the document",
+      "type": "content_contains",
+      "check": "wise.com/pay/r/h_test1"
+    },
+    {
+      "name": "bank_reference_present",
+      "description": "Bank reference 140001 appears in the document",
+      "type": "content_contains",
+      "check": "140001"
+    },
+    {
+      "name": "due_date_correct",
+      "description": "Due date is 11/04/26 (28 Mar + 14 days)",
+      "type": "content_contains",
+      "check": "11/04/26"
+    }
+  ]
+}

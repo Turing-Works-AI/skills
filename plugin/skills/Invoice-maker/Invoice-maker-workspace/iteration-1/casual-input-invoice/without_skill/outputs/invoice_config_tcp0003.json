@@ -1,0 +1,20 @@
+{
+  "invoice_code": "TCP0003",
+  "client_name": "Total Concept Projects",
+  "client_address": ["Unit 26, 4a Bachell Ave", "Lidcombe", "NSW", "2141"],
+  "invoice_date": "2026-03-28",
+  "bank_reference": "140003",
+  "payment_link": "https://wise.com/pay/r/h_test3",
+  "line_items": [
+    {
+      "item": "Monthly Retainer",
+      "description": "Monthly Retainer - AI Automation Services - March 2026",
+      "amount_inc_gst": 3300.00
+    },
+    {
+      "item": "Project Fee",
+      "description": "Data Pipeline Development and Integration",
+      "amount_inc_gst": 7700.00
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "eval_id": 1,
+  "eval_name": "single-item-invoice",
+  "variant": "with_skill",
+  "expectations": [
+    {
+      "text": "docx_file_generated",
+      "passed": true,
+      "evidence": "Found: 20260328_Invoice_LYK0003.docx"
+    },
+    {
+      "text": "invoice_code_in_document",
+      "passed": true,
+      "evidence": "'LYK0003' found in document"
+    },
+    {
+      "text": "client_name_in_billto",
+      "passed": true,
+      "evidence": "'Lyka' found in document"
+    },
+    {
+      "text": "gst_ex_amount_correct",
+      "passed": true,
+      "evidence": "'$5,000.00' found in document"
+    },
+    {
+      "text": "total_amount_correct",
+      "passed": true,
+      "evidence": "'$5,500.00' found in document"
+    },
+    {
+      "text": "payment_link_present",
+      "passed": true,
+      "evidence": "'wise.com/pay/r/h_test1' found in document"
+    },
+    {
+      "text": "bank_reference_present",
+      "passed": true,
+      "evidence": "'140001' found in document"
+    },
+    {
+      "text": "due_date_correct",
+      "passed": true,
+      "evidence": "'11/04/26' found in document"
+    }
+  ],
+  "pass_rate": "8/8"
+}

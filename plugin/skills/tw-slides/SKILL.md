@@ -25,13 +25,16 @@ tw-slides/
 ├── content/               ← WHAT to write on each slide type
 │   ├── situation.md       ← Action title patterns, body structure, bold rules
 │   ├── objectives.md      ← Focus area structure, subtitle formula
-│   └── workplan.md        ← Verb progression, deliverables, cell bullets
+│   ├── workplan.md        ← Verb progression, deliverables, cell bullets
+│   └── process-stages.md  ← Stage names, activity bullets, output phrasing
 │
 ├── components/            ← HOW each slide looks (positions, shapes, code)
 │   ├── situation/spec.md  ← Branded left panel + right content area
 │   ├── objectives/spec.md ← Left panel + combined title/body text box
 │   ├── workplan/spec.md   ← Week × workstream matrix grid
-│   └── table-3col/spec.md ← Generic 3-column table with summary row
+│   ├── table-3col/spec.md ← Generic 3-column table with summary row
+│   ├── card-list/spec.md  ← Numbered stacked cards (issues, risks, findings)
+│   └── process-stages/spec.md ← Chevron timeline with activity + output boxes
 │
 └── templates/
     └── brief-template.yaml ← Copy-paste YAML briefing format
@@ -188,6 +191,15 @@ After delivering the slide, briefly note:
 - 2×2 grid of cards with light fill (`#F9F9F7` or `#E8E8E4`)
 - Each card: numbered badge (dark teal), bold short title (14pt), body text (10pt)
 - Uniform card padding; consistent border radius (4–6pt)
+
+#### Numbered Card List (full-width)
+- Full-width slide (no left panel); white background
+- Action title: **24pt bold Midnight Navy** — larger than standard content slides, leads with impact
+- Optional teal lead subtitle (14pt) below the title
+- 3–6 stacked horizontal cards in Light Stone (`#E8E8E4`), rounded corners
+- Each card: numbered Deep Teal badge (vertically centred), **issue title** (bold navy) and **metric** (teal) on the same line separated by whitespace (not em dash or pipe), description text below spanning full width, category tag pill (bordered, teal italic) vertically centred on right edge
+- Use for: issue lists, findings, risk registers, prioritised items
+- Full spec: `components/card-list/spec.md`
 
 #### Dark CTA / Section Divider Slide
 - Background: `#0D425C` or `#072E45`

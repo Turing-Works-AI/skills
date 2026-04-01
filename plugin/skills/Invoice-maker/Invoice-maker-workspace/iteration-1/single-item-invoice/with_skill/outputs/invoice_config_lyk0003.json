@@ -1,0 +1,15 @@
+{
+  "invoice_code": "LYK0003",
+  "client_name": "Lyka Pet Food Pty Ltd",
+  "client_address": ["Level 5, 100 Harris St", "Pyrmont", "NSW", "2009"],
+  "invoice_date": "2026-03-28",
+  "bank_reference": "140001",
+  "payment_link": "https://wise.com/pay/r/h_test1",
+  "line_items": [
+    {
+      "item": "Monthly Retainer",
+      "description": "AI Automation Consulting - March 2026",
+      "amount_inc_gst": 5500.00
+    }
+  ]
+}

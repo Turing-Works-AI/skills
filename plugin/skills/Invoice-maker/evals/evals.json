@@ -1,0 +1,23 @@
+{
+  "skill_name": "invoice-maker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create an invoice for Lyka - LYK0003, for March AI automation consulting work. $5,500 inc GST. Wise link: https://wise.com/pay/r/h_test1. Reference 140001. Their address is Level 5, 100 Harris St, Pyrmont NSW 2009.",
+      "expected_output": "A .docx invoice with invoice code LYK0003, client Lyka Pet Food, single line item for $5,500 inc GST, correct GST calculation, QR code, and proper formatting",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need to bill Ballpoint for two things - the workshop we ran ($2,750 inc GST) and the automation build for March ($8,250 inc GST). Invoice code BAL0005. Payment link is https://wise.com/pay/r/h_test2, reference 140002. Address: 14 Soho Square, London W1D 3QF, United Kingdom.",
+      "expected_output": "A .docx invoice with invoice code BAL0005, two line items totalling $11,000 inc GST, correct GST calculations for each item, proper formatting",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "invoice for TCP please - TCP0003. They're at Unit 26, 4a Bachell Ave, Lidcombe NSW 2141. Two items: march retainer $3,300 and data pipeline work $7,700 (all inc GST). wise link https://wise.com/pay/r/h_test3 ref 140003",
+      "expected_output": "A .docx invoice with invoice code TCP0003, two line items with wordsmithed descriptions, total $11,000 inc GST, professional formatting despite casual input",
+      "files": []
+    }
+  ]
+}
