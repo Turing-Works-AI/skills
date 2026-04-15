@@ -192,11 +192,11 @@ The title and metric sit on the same baseline. Keep the metric visually distinct
 
 ### Corner triangle + page badge
 
-Per global constants (see `constants.md`).
+Per global constants (see `../brand.md`).
 
 ### Bottom accent bar
 
-Per global constants (see `constants.md`).
+Per global constants (see `../brand.md`).
 
 ---
 

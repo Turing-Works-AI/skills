@@ -4,6 +4,8 @@ A generic table layout derived from the workplan slide. Three equal columns with
 
 This is the generalised table component. The `workplan` component is one specific use of this pattern.
 
+**Visual reference:** `table-3col-example.pdf` / `table-3col-example.pptx`
+
 ---
 
 ## Slide properties

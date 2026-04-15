@@ -2,9 +2,7 @@
 
 A matrix/grid layout showing a week-by-week workplan across multiple workstreams. Features week column headers (pills), workstream row labels, content cells with bullet lists, a deliverables row, and structural elements (divider lines, banners, footnotes). Highly structured — the grid dimensions scale based on the number of weeks and workstreams.
 
----
-
-> **Content guide:** See `content/workplan.md` for what to write on this slide.
+**Visual reference:** `workplan-example.pdf` / `workplan-example.pptx`
 
 ---
 

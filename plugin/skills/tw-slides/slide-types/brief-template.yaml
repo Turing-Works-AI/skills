@@ -1,0 +1,80 @@
+# TW Slides — Brief Template
+# Copy and fill in for each slide you want to create.
+
+# --- Left-third-title (Situation / Objectives slides) ---
+# Variant: 'columns' (2–4 cards in a row) or 'bullets' (numbered or not).
+# See slide-types/left-third-title.md for word counts and constraints.
+
+# Example 1: Situation with 3 columns
+slide: 1
+title: "Action title — a conclusion, not a topic label (15–20 words)"
+layout: left-third-title
+variant: columns
+section_label: "Situation"
+section_subtitle: "Understanding the client's\ncontext and AI ambitions"
+columns:
+  - title: "Column 1"       # 1–3 words
+    body: "Short description of this area (12–18 words)"
+    icon: ""                # Optional PNG path
+  - title: "Column 2"
+    body: "Short description of this area"
+  - title: "Column 3"
+    body: "Short description of this area"
+source: "Source: Description of source (Person Name, Date)"
+logo_path: ""
+
+# Example 2: Objectives with numbered bullets (uncomment to use)
+# slide: 2
+# title: "Conclusion statement naming the outcome the client wants"
+# layout: left-third-title
+# variant: bullets
+# section_label: "Objectives"
+# section_subtitle: "What client wants to achieve\nover the next horizon"
+# bullets:
+#   numbered: true
+#   items:
+#     - title: "Bold objective title (3–8 words)"
+#       body: "Continuation explaining the outcome (15–30 words)"
+#     - title: "Second objective title"
+#       body: "Continuation explaining the outcome"
+#     - title: "Third objective title"
+#       body: "Continuation explaining the outcome"
+# source: "Source: Conceptual agreement call with sponsor, date"
+# logo_path: ""
+
+# --- Boxes-3up ---
+# slide: 2
+# title: "Action title as a conclusion"
+# layout: boxes-3up
+# section_label: "Situation"
+# boxes:
+#   - heading: "Box 1 heading"
+#     content: |
+#       - Bullet point one
+#       - Bullet point two
+#   - heading: "Box 2 heading"
+#     content: |
+#       - Bullet point one
+#       - Bullet point two
+#   - heading: "Box 3 heading"
+#     content: |
+#       - Bullet point one
+#       - Bullet point two
+# source: "Source: Description"
+
+# --- Two-column ---
+# slide: 3
+# title: "Action title as a conclusion"
+# layout: two-column
+# section_label: "Executive summary"
+# left_column:
+#   type: numbered-steps
+#   items:
+#     - heading: "Step heading"
+#       detail: "Step detail text"
+# right_column:
+#   type: metrics
+#   items:
+#     - metric: "70%"
+#       label: "Metric description"
+# source: "Source: Description"

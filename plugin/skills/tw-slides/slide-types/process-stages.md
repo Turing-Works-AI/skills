@@ -4,10 +4,6 @@ A full-width content slide showing a phased process as a horizontal timeline. Fe
 
 ---
 
-> **Content guide:** See `content/process-stages.md` for what to write on this slide.
-
----
-
 ## Slide properties
 
 | Property | Value |
