@@ -8,6 +8,21 @@ This is the generalised table component. The `workplan` component is one specifi
 
 ---
 
+## Build workflow
+
+**Default — duplicate from example.** Use the `anthropic-skills:pptx` editing flow (`editing.md`):
+
+1. `python scripts/office/unpack.py table-3col-example.pptx unpacked/`
+2. Duplicate the example slide with `add_slide.py`.
+3. Swap text in the duplicated slide's XML — preserve `<a:pPr>` and run-property formatting. If the source has fewer rows than the template, **delete the entire row's elements** (cells, dividers), don't just clear the text.
+4. `python scripts/clean.py unpacked/`, then `python scripts/office/pack.py unpacked/ output.pptx --original table-3col-example.pptx`.
+
+**Fallback — generate from code.** Use the `pptxgenjs` code template at the bottom of this file when the row count or column structure differs materially from the example.
+
+After either path, run the visual-QA loop from `anthropic-skills:pptx`.
+
+---
+
 ## Slide properties
 
 | Property | Value |

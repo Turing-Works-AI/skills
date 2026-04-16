@@ -65,20 +65,24 @@ Name the scaling pressure they're under in one conclusion. Example shape: *"{{Cl
 `left-third-title`
 
 ### Variant
-`bullets` with `numbered: true` — 3 objectives, each a numbered teal circle with a bold title and continuation body.
+`bullets` with `numbered: true` — numbered teal circles, each with a bold title and a continuation sentence. Numbered (not dotted) because objectives are a discrete, finite set the sponsor can count off.
 
 ### Purpose
 Frame the engagement around outcomes the client cares about, not solutions we sell. Must reflect what was agreed on the conceptual agreement call.
 
 ### Action title pattern
-One conclusion naming the outcome the client wants. Example shape: *"{{Stakeholder}} wants to {{primary goal}} without {{primary constraint}}"*.
+One conclusion naming the outcome the engagement is built around. Example shape: *"{{Client}} wants to {{primary outcome}} without {{primary constraint}}"* — e.g. *"Ballpoint wants to double client load without doubling the team"*.
 
 ### Body content
-3 numbered objectives. Each has a bold title (3–8 words) + a continuation sentence (15–30 words) in outcome language, not solution language. Typical objectives for an ops-heavy DTC / services business:
-- Scale operations without scaling headcount
-- Centralise data to replace manual reporting
-- Reduce manual burden across specific functions ({{fn 1}}, {{fn 2}}, {{fn 3}})
-- Any specific measures of success the sponsor named
+1–4 numbered objectives (3 is the typical sweet spot). Each = **bold title (3–8 words)** + continuation sentence (15–30 words). Outcome language only — name the *result*, not the *mechanism*.
+
+Source the objectives from what the sponsor said on the conceptual agreement call. If they named more than 4, pick the ones with the clearest signal of success and fold the rest into continuation text.
+
+Common shapes for ops-heavy DTC / services businesses:
+- **Scale without scaling headcount** — handle {{growth metric}} of additional volume on the current team
+- **Replace manual reporting** — leadership sees {{metric}} without {{report owner}} stitching it together each week
+- **Take pressure off {{specific function}}** — reduce the {{recurring task}} load on {{team}} so they can focus on {{higher-value work}}
+- **Build {{capability}}** — for capability or maturity goals where success is qualitative (e.g. "be able to spin up a new market without a new ops hire")
 
 ### Section subtitle (left panel)
 "What {{client}} wants to achieve\nover the next {{horizon}}"
@@ -94,6 +98,8 @@ One conclusion naming the outcome the client wants. Example shape: *"{{Stakehold
 - Outcomes, not solutions. "Reduce manual ops burden" — not "implement automation platform".
 - Bold the verb in each objective so the outcome scans fast
 - Tense: future-looking ("wants to…", "will…")
+- Prefer measurable objectives, but capability or maturity goals can be subjective if that's what the sponsor said — lift their framing rather than forcing a metric onto it
+- Use the sponsor's own phrasing from the call transcript wherever possible
 
 ---
 

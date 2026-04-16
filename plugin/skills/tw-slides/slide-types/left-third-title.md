@@ -6,6 +6,21 @@ Used for **Situation** and **Objectives** slides. A branded left panel (section 
 
 ---
 
+## Build workflow
+
+**Default — duplicate from example.** Use the `anthropic-skills:pptx` editing flow (`editing.md`):
+
+1. `python scripts/office/unpack.py left-third-title-examples.pptx unpacked/`
+2. Pick the example slide closest to the variant you need (situation vs objectives, columns vs bullets) and duplicate it with `add_slide.py`.
+3. Swap text in the duplicated slide's XML — keep `<a:pPr>` and run-property formatting intact.
+4. `python scripts/clean.py unpacked/`, then `python scripts/office/pack.py unpacked/ output.pptx --original left-third-title-examples.pptx`.
+
+**Fallback — generate from code.** Use the `pptxgenjs` code template at the bottom of this file when the variant is structurally beyond the four examples (e.g. column counts other than 2/3/4, or a body layout the examples don't cover).
+
+After either path, run the visual-QA loop from `anthropic-skills:pptx`.
+
+---
+
 ## Slide properties
 
 | Property | Value |

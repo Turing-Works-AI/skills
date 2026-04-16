@@ -4,6 +4,14 @@ A full-width content slide showing a phased process as a horizontal timeline. Fe
 
 ---
 
+## Build workflow
+
+**No example `.pptx` exists for this slide type yet.** Use the `pptxgenjs` code template at the bottom of this file. (TODO: build a `process-stages-example.pptx` so this slide type can move to the duplication-from-template default like the others.)
+
+After build, run the visual-QA loop from `anthropic-skills:pptx`.
+
+---
+
 ## Slide properties
 
 | Property | Value |

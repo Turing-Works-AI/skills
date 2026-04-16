@@ -6,6 +6,21 @@ A matrix/grid layout showing a week-by-week workplan across multiple workstreams
 
 ---
 
+## Build workflow
+
+**Default — duplicate from example.** Use the `anthropic-skills:pptx` editing flow (`editing.md`):
+
+1. `python scripts/office/unpack.py workplan-example.pptx unpacked/`
+2. Duplicate the example slide with `add_slide.py`.
+3. Swap text in the duplicated slide's XML — preserve `<a:pPr>` and run-property formatting. If the source has fewer weeks or workstreams than the template, **delete the entire column or row group**, don't just clear text.
+4. `python scripts/clean.py unpacked/`, then `python scripts/office/pack.py unpacked/ output.pptx --original workplan-example.pptx`.
+
+**Fallback — generate from code.** Use the `pptxgenjs` code template at the bottom of this file when the grid dimensions differ materially from the example (different week or workstream counts that would require restructuring).
+
+After either path, run the visual-QA loop from `anthropic-skills:pptx`.
+
+---
+
 ## Slide properties
 
 | Property | Value |

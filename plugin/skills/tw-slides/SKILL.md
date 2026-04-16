@@ -22,6 +22,21 @@ This skill governs all Turing Works slide creation. It is split into focused fil
 
 ---
 
+## Relationship to `anthropic-skills:pptx`
+
+`anthropic-skills:pptx` owns the **mechanics of the `.pptx` file**: pptxgenjs scaffolding, reading existing decks (`markitdown`), editing via unpack/pack, conversion to JPGs, and the visual-QA subagent loop.
+
+This skill owns the **content and design**: brand standards, writing rules, deck spine, content patterns, and the Turing Works slide-type layouts.
+
+Division of labour:
+
+- **Always render through `slide-types/*.md`.** Those layouts, plus the matching `*-example.pptx` and `*-example.pdf` reference files, are the source of truth for what a Turing Works slide looks like. Never substitute the generic palettes, fonts, or layouts in `anthropic-skills:pptx` — those are explicitly overridden by `brand.md` and the slide-type templates here.
+- **Default build path = template duplication.** When the slide type has a `*-example.pptx`, use the `anthropic-skills:pptx` editing workflow (`editing.md`) to unpack it, duplicate the relevant slide, swap the text, clean and repack. This preserves brand fidelity and avoids code drift.
+- **Fallback = code generation.** If the slide type has no example file, or the requested variant is structurally outside what the example covers (e.g. 5 cards when the example has 3), fall back to the `pptxgenjs` code template at the bottom of the slide-type file.
+- **Visual QA is mandatory.** After build, always run the `anthropic-skills:pptx` visual-QA loop: render slides to JPGs (`soffice` + `pdftoppm`), have a subagent inspect them, fix issues, re-verify.
+
+---
+
 ## Working pattern
 
 For every slide task:
@@ -29,8 +44,8 @@ For every slide task:
 1. **Plan** — read `deck-playbook.md` to orient the slide within the deck.
 2. **Decide content** — consult `content.md` for the pattern and the slide type it suggests.
 3. **Write** — apply `writing-rules.md` to every line of copy.
-4. **Render** — open `slide-types/{type}.md` for exact placement and the code template; apply `brand.md` for any shared constants.
-5. **Finish** — run the Pre-Flight checklist and Toothbrush Test in `deck-playbook.md`.
+4. **Render** — open `slide-types/{type}.md`. If a `*-example.pptx` exists, duplicate the matching slide via the `anthropic-skills:pptx` editing flow (unpack → `add_slide.py` → swap text → `clean.py` → `pack.py`). Otherwise use the `pptxgenjs` code template in the slide-type file. Apply `brand.md` for any shared constants either way.
+5. **Finish** — run the Pre-Flight checklist and Toothbrush Test in `deck-playbook.md`, then run the visual-QA loop from `anthropic-skills:pptx` (render to JPGs, subagent review, fix and re-verify). Do not declare done until at least one fix-and-verify cycle has passed cleanly.
 
 ---
 
