@@ -49,6 +49,26 @@ For every slide task:
 
 ---
 
+## Layout improvement and tidying
+
+When asked to "improve the layout", "tidy the slide", "align boxes", or make other cosmetic improvements to an existing PPTX:
+
+1. **Unpack the slide** using `anthropic-skills:pptx` (`unpack.py`).
+2. **Read the slide XML** and map every shape's position (`<a:off x="" y=""/>`) and size (`<a:ext cx="" cy=""/>`).
+3. **Identify alignment issues** — compare shapes that should be in the same row or column. Look for:
+   - Boxes that should share the same `y` value but don't (horizontal misalignment)
+   - Boxes that should share the same `x` value but don't (vertical misalignment)
+   - Inconsistent gaps between elements (one gap is 47 EMU, the next is 120 EMU)
+   - Row labels not vertically centred against their content cells
+   - Uneven row heights or column widths for elements that should match
+4. **Fix positions directly in the XML** — adjust `<a:off>` and `<a:ext>` values to align elements. Use the first element in a row/column as the reference and snap others to match.
+5. **Apply `brand.md` spacing rules** — minimum 0.5" margins from slide edges, 0.3-0.5" between content blocks, consistent gaps throughout.
+6. **Clean, pack, and visually verify** using the `anthropic-skills:pptx` workflow (`clean.py` → `pack.py` → render → subagent QA).
+
+Layout improvements are only made when explicitly requested — e.g. "tidy the layout", "align boxes", "improve the design". Do not make layout changes as part of a content-only edit unless asked.
+
+---
+
 ## Integration with `client-wiki`
 
 When building decks for a specific client, source material lives in the `client-wiki` repo at `clients/{name}/`. The `presentation-creator` agent in that repo is responsible for gathering the right inputs from the hub page, use cases, meetings, and research — this skill governs how those inputs are turned into on-brand slides.

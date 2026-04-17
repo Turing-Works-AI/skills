@@ -16,8 +16,9 @@ Every slide title must be a **conclusion**, not a topic.
 Rules:
 - 5–6 words minimum, ideally one line
 - Include a verb and a direction
-- State the takeaway; let the body prove it
+- State the takeaway; let the body prove it — the action title is the "so what" of the entire slide
 - Sentence case, not Title Case
+- **Say what we do, not what we don't.** Never define by negation ("not a plan at the end", "without delays"). State the positive action or outcome directly.
 
 If read in sequence across the deck, the Action Titles should chain into a coherent argument. If they don't, the storyline is broken — see `deck-playbook.md` for the Ghost Deck method.
 
@@ -48,6 +49,7 @@ A 10-word elaboration below the Action Title. Adds units, context, or a qualifyi
 - **Specific over vague**: name tools, methods, timelines, and numbers wherever possible
 - **Result-oriented**: every recommendation states its expected outcome
 - **Confident but not salesy**: no "best-in-class", "world-leading", "game-changer"
+- **Positive framing**: say what we do, not what we don't. "Delivery starts day one" — not "not a plan at the end." Every sentence should describe an action or outcome, never define itself by what it isn't.
 - **Source attribution**: "Source: …" on any slide making a factual claim
 - No LLM-isms: no "ship it", "delve into", "leverage" (unless quoting client language), "revolutionary"
 - Em dash (—) not double hyphen (--)
