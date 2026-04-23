@@ -1,5 +1,5 @@
 ---
-name: bottleneck-remover-algorithm
+name: the-algorithm
 description: Interactive decision framework based on Elon Musk's five-step method. Walks you through discrete AskUserQuestion prompts — one at a time — to find the real bottleneck, decide whether to act, what to delete instead, and the simplest reliable approach. Use BEFORE acting on any non-trivial decision — feature request, refactor, migration, new tool/vendor/hire, process change, meeting, policy, roadmap item. Skip for single-line typos or when the user has given explicit "just do it" instructions. Prevents over-engineering and scope creep by gating action behind deliberate questioning. Five steps — 1) Question need 2) Delete unnecessary 3) Simplify 4) Accelerate 5) Automate — most decisions end at Step 3.
 ---
 
