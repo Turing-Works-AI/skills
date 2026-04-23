@@ -1,20 +1,21 @@
 ---
 name: the-algorithm
-description: Interactive decision framework based on Elon Musk's five-step method. Walks you through discrete AskUserQuestion prompts — one at a time — to find the real bottleneck, decide whether to act, what to delete instead, and the simplest reliable approach. Use BEFORE acting on any non-trivial decision — feature request, refactor, migration, new tool/vendor/hire, process change, meeting, policy, roadmap item. Skip for single-line typos or when the user has given explicit "just do it" instructions. Prevents over-engineering and scope creep by gating action behind deliberate questioning. Five steps — 1) Question need 2) Delete unnecessary 3) Simplify 4) Accelerate 5) Automate — most decisions end at Step 3.
+description: Interactive decision framework adapted from Elon Musk's five-step method. Walks you through discrete AskUserQuestion prompts — one at a time — to find the real bottleneck, reason from first principles, and commit to the simplest reliable approach. Use BEFORE acting on any non-trivial decision — feature request, refactor, migration, new tool/vendor/hire, process change, meeting, policy, roadmap item. Skip for single-line typos or when the user has given explicit "just do it" instructions. Prevents over-engineering, scope creep, and premature automation. Five steps — 1) Question 2) Delete and Simplify 3) Optimise 4) Accelerate (get it working end-to-end) 5) Automate — strictly in order, with Steps 2↔3 looping as needed when Step 4 uncovers failures.
 ---
 
-# Bottleneck Remover Algorithm
+# The Algorithm
 
-A gated decision framework adapted from Elon Musk's five-step production method. Instead of synthesizing an answer immediately, walk the user through **one discrete question at a time** using the `AskUserQuestion` tool. Each answer determines whether to proceed to the next step or cut to the conclusion.
+A gated decision framework adapted from Elon Musk's five-step production method. Instead of synthesizing an answer immediately, walk the user through **one discrete question at a time** using the `AskUserQuestion` tool. Each answer determines whether to proceed, loop back, or cut to the conclusion.
 
-Default bias: **most decisions end at Step 3.** Steps 4–5 are rare.
+Default bias: **most decisions end at Step 2.** Steps 3, 4, and 5 only run when there are real tradeoffs, real integration risk, and real repetition to justify them.
 
-The five steps that remove the bottleneck:
-1. **Question** the requirement — is it actually broken?
-2. **Delete** anything unnecessary — can the problem disappear instead?
-3. **Simplify** what remains — find the minimum reliable solution
-4. **Accelerate** cycle time — only after Steps 1–3
-5. **Automate** — only after the manual version is validated
+The five steps:
+
+1. **Question** the requirement — reason from first principles; what's the goal, gap, and the primitives on the critical path?
+2. **Delete and Simplify** — remove anything unnecessary, find the minimum version of what remains, and name the tradeoffs.
+3. **Optimise** — given the tradeoffs from Step 2, pick the configuration that best serves the goal.
+4. **Accelerate** — run the design end-to-end. If it fails, **loop back between Steps 2 and 3** — delete broken pieces, simplify, re-optimise — until it runs clean.
+5. **Automate** — only after the thing works end-to-end, is as simple as possible, and is optimised.
 
 ## When to invoke
 
@@ -28,17 +29,18 @@ The five steps that remove the bottleneck:
 
 ## Operating rules
 
-- **One question per turn.** Never list all questions up front. Fire one `AskUserQuestion`, read the answer, decide whether to ask the next one or jump to the conclusion.
+- **One question per turn.** Never list all questions up front. Fire one `AskUserQuestion`, read the answer, decide whether to ask the next one or jump ahead.
 - **Branch aggressively.** If Step 1 returns "don't do", don't ask Step 2 or 3.
-- **Free-text when needed.** Some questions (e.g., "what could you delete?") don't have preset options. Ask in plain text — don't force multiple-choice when the answer space is open.
-- **Never answer for the user.** If you find yourself guessing their answer, stop and ask.
+- **Loop freely between Steps 2 and 3.** If Step 4 uncovers a failure, go back — don't push through.
+- **Free-text when needed.** Some questions don't have preset options. Ask in plain text — don't force multiple-choice when the answer space is open.
+- **Never answer for the user.** If you find yourself guessing, stop and ask.
 - **Restate answers back.** After each question, echo the answer in one line so the user can correct a misread before the next question.
 
 ---
 
 ## Step 1 — Question the requirement (first principles)
 
-Musk's framing: *requirements are always wrong, no matter how smart the source.* Your job before accepting the request is to force the user to reason from first principles — name the goal, name the gap, name the primitives on the critical path — and only *then* decide whether this request moves an actual primitive.
+Musk's framing: *requirements are always wrong, no matter how smart the source.* Force the user to reason from first principles — name the goal, name the gap, name the primitives on the critical path — and only *then* decide whether this request moves an actual primitive.
 
 **Primitives** are the atomic, irreducible building blocks of the system at the relevant abstraction layer — things that cannot be decomposed further without changing what the system is. Examples: the data structure a feature needs, the network hop it depends on, the human step that can't be skipped. Everything else is composition and can be re-derived.
 
@@ -54,21 +56,21 @@ Free-text. Two sentences: where things are now, and the specific gap between now
 
 ### Q1.3 — What primitives sit on the critical path from current state → goal?
 
-Free-text; ask for a short list (3–7 items). Prompt the user with: *"What are the irreducible building blocks that have to work for the goal to be reached? Strip away everything derivative."* Offer examples if they stall — a data model, a network call, a consent step, a UI primitive like a button. These are the things you will NOT delete in Step 2.
+Free-text; ask for a short list (3–7 items). Prompt: *"What are the irreducible building blocks that have to work for the goal to be reached? Strip away everything derivative."* Offer examples if they stall — a data model, a network call, a consent step, a UI primitive like a button. These are the things you will NOT delete in Step 2.
 
 ### Q1.4 — Does the request in front of us move one of those critical-path primitives?
 
 `AskUserQuestion`:
 - **A.** Now — it unblocks a primitive that is currently blocking progress
 - **B.** Later — it's downstream of an on-path primitive but not blocking yet
-- **C.** Off-path — it's adjacent / nice-to-have / not tied to any primitive in Q1.3
+- **C.** Off-path — adjacent / nice-to-have / not tied to any primitive in Q1.3
 - **D.** Not sure
 
 Branch:
 - **A** → ask Q1.5
-- **B** → **Verdict: Record for later.** "It's on-path but not blocking. Log in the backlog; revisit when an earlier primitive is unblocked."
-- **C** → **Verdict: Don't do.** "Off-path work is the definition of scope creep — if it doesn't map to a primitive you named, deleting the request costs nothing." Skip to Conclusion.
-- **D** → tell the user the skill cannot proceed until the primitive list in Q1.3 is sharp enough to map this request against. Loop back to Q1.3.
+- **B** → **Verdict: Record for later.** "On-path but not blocking. Log in the backlog; revisit when an earlier primitive is unblocked."
+- **C** → **Verdict: Don't do.** "Off-path work is the definition of scope creep — if it doesn't map to a primitive, deleting the request costs nothing." Skip to Conclusion.
+- **D** → the skill cannot proceed until Q1.3 is sharp enough to map this request against. Loop back to Q1.3.
 
 ### Q1.5 — How often does this blocker actually hit?
 
@@ -80,56 +82,50 @@ Branch:
 
 Branch:
 - **A / B** → proceed to Step 2
-- **C / D** → **Verdict: Record for later.** "Rare problems don't justify permanent code/process, even when they are on-path. Log and revisit if it recurs."
+- **C / D** → **Verdict: Record for later.** "Rare problems don't justify permanent code/process, even on-path. Log and revisit if it recurs."
 
 ---
 
-## Step 2 — Delete
+## Step 2 — Delete and Simplify
 
-Before adding anything, look for something to remove. Musk's rule of thumb: *if you never have to add ~10% of what you delete back later, you weren't aggressive enough.* But there is a floor — **never delete a primitive you named in Q1.3.** Those are load-bearing. Delete the bloat that sits on top of them.
+Delete anything unnecessary, find the smallest version of what remains, and name the tradeoffs *now* — not later. Tradeoffs surface here so Step 3 has something concrete to optimise against.
+
+**Anchor:** the primitives named in Q1.3 are load-bearing. Never delete them. Everything composed *on top of* primitives is a candidate.
 
 ### Q2.1 — What existing thing, if removed, would make this problem disappear?
 
-Ask as free-text (no options — this is open-ended). Push for aggressive candidates.
-
-Examples of framings to offer if the user is stuck:
+Free-text. Push for aggressive candidates. Prompts if stuck:
 - A fallback, a legacy code path, an auto-detection routine
 - A config option nobody uses, a feature flag that's permanently on/off
 - A process step, a meeting, an approval gate
-- A vendor or tool that's only used for one corner case
+- A vendor or tool used for one corner case
 
 ### Q2.2 — If you delete that thing, does the original problem still need solving?
 
 `AskUserQuestion`:
 - **A.** No — deleting solves it entirely
-- **B.** Partially — it shrinks the problem but doesn't remove it
-- **C.** Yes — the problem remains even without that thing
-- **D.** I can't think of anything to delete
+- **B.** Partially — it shrinks the problem
+- **C.** Yes — the problem remains
+- **D.** Nothing comes to mind
 
 Branch:
-- **A / B** → ask Q2.3 (guard against deleting a primitive)
-- **C** → proceed to Step 3 (delete didn't help; the request stays)
-- **D** → push back once: "Are you sure nothing upstream could be removed? Re-read your Q1.3 list — anything composed *on top of* those primitives is a candidate." Ask Q2.1 again. If still D → proceed to Step 3.
+- **A / B** → ask Q2.3
+- **C** → skip to Q2.4 (nothing to delete; move straight to simplification)
+- **D** → push back once: "Re-read your Q1.3 list — anything composed *on top of* those primitives is a candidate." Ask Q2.1 again. If still D → skip to Q2.4.
 
-### Q2.3 — Does the candidate break any primitive from Q1.3?
+### Q2.3 — Does the delete candidate break any primitive from Q1.3?
 
 `AskUserQuestion`:
-- **A.** No — the candidate is pure overhead sitting on top of the primitives
+- **A.** No — pure overhead sitting on top of the primitives
 - **B.** Partially — it supports a primitive but isn't the primitive itself
-- **C.** Yes — deleting it removes something you listed in Q1.3
+- **C.** Yes — deleting it removes something in Q1.3
 
 Branch:
-- **A** → **Verdict: Delete, don't add.** Safe aggressive delete. Skip Step 3.
-- **B** → **Verdict: Delete with a restoration note.** Propose the deletion AND flag explicitly: "This may need a ~10% re-add later if the primitive it supports starts misbehaving. That's expected — Musk's 10% rule." Skip Step 3.
-- **C** → **Stop.** You're about to delete the thing, not the bloat. Loop back to Q2.1 and find a different candidate. Never delete a primitive.
+- **A** → safe delete. If A from Q2.2 → Verdict: **Delete, don't add.** Skip to Conclusion. Otherwise continue to Q2.4.
+- **B** → accept the delete but flag it. Continue to Q2.4.
+- **C** → reject. Loop back to Q2.1 and find a different candidate. Never delete a primitive.
 
----
-
-## Step 3 — Simplify
-
-Find the minimum reliable solution for what survived.
-
-### Q3.1 — What's the simplest version that works?
+### Q2.4 — What's the simplest version of what remains?
 
 `AskUserQuestion`:
 - **A.** One config line / env var / flag flip
@@ -139,49 +135,92 @@ Find the minimum reliable solution for what survived.
 - **E.** Not sure yet
 
 Branch:
-- **A** → good. Propose it in Conclusion.
-- **B** → good, proceed to Conclusion.
-- **C** → ask Q3.2 before accepting
-- **D** → ask Q3.2 and Q3.3 — strong pressure to reduce scope
-- **E** → ask the user to spend 5 minutes sketching, then retry
+- **A / B** → minimal scope. Continue to Q2.5 only if there are obvious tradeoffs; otherwise skip Step 3 entirely.
+- **C / D** → continue to Q2.5 — scope needs pressure.
+- **E** → ask the user to sketch for 5 minutes, then retry.
 
-### Q3.2 — Would you accept one tradeoff to shrink this to A or B?
+### Q2.5 — What tradeoffs are on the table?
 
-Free-text. Offer common tradeoffs as prompts:
-- "Pick one case instead of handling both"
-- "Require the user to edit a config line instead of auto-detecting"
-- "Ship it as manual-run and only automate if it proves valuable"
-- "Write an error message instead of a fallback"
+Free-text. List 2–4 tradeoffs you could make to shrink scope further or change character. Examples to prompt if stuck:
+- Handle one case vs both
+- Manual config vs auto-detection
+- Ship as manual-run vs pre-automate
+- Error message vs silent fallback
+- Fewer primitives supported vs more
 
-If the user accepts a tradeoff, update the chosen approach before Conclusion.
+### Q2.6 — What are you NOT going to do?
 
-### Q3.3 — (scope-reduction only) What are you *not* going to do?
+Free-text. Force the user to name at least one thing being cut. If they can't, the scope is still too big — loop back to Q2.4.
 
-Free-text. Force the user to name at least one thing being cut. If they can't, the scope is still too big — loop back.
+End of Step 2. If Q2.4 = A/B and Q2.5 surfaced no meaningful tradeoffs, go straight to Conclusion — there's nothing to optimise.
 
 ---
 
-## Steps 4–5 — hard-gated on order
+## Step 3 — Optimise
 
-**Ordering is enforced, not advisory.** Steps 4 and 5 run ONLY if this conversation has user-confirmed answers for Steps 1, 2, AND 3. Musk's most-cited anti-pattern is reversing this order — automating or accelerating an un-simplified process compounds bugs and cost at scale. If the user invokes the skill asking to "optimise" or "automate" without running Steps 1–3 first, refuse and loop back to Step 1. Do not accept *"I already did those steps mentally"* — if the answers aren't in the conversation, they didn't happen for this decision.
+Given the tradeoffs from Q2.5, choose the configuration that best serves the goal from Q1.1. Optimising isn't about picking the fastest option — it's about picking the one that minimises total complexity while keeping the critical-path primitives intact.
 
-Before running Step 4 or Step 5, verify internally: *"Do I have this user's answers to Q1.1–Q1.5, Q2.1–Q2.3 (or justified skip), and Q3.1 (plus Q3.2/Q3.3 if required) in this conversation?"* If no → loop back.
+Skip Step 3 entirely if Step 2 ended with a one-liner or tiny function and no real tradeoffs — nothing to optimise.
 
-### Step 4 — Accelerate
+### Q3.1 — Which Q2.5 tradeoff matters most to the goal?
 
-Only if Steps 1–3 are complete AND the surviving plan is on a hot critical path (user-visible latency, paid per-invocation cost, or blocking another system). `AskUserQuestion`:
-- **A.** Yes, it's critical-path — optimise now
-- **B.** No, ship the simple version first
+Free-text. Force a single ranking. If the user waffles, ask them to name the single tradeoff that, if chosen wrong, most threatens the goal.
 
-If B: skip.
+### Q3.2 — What's the optimal configuration?
 
-### Step 5 — Automate
+`AskUserQuestion`:
+- **A.** Ship the simplest version and accept its tradeoffs
+- **B.** Simplest-plus-one: capture the most important tradeoff, nothing else
+- **C.** A different configuration entirely (free-text follow-up)
 
-Only if Steps 1–3 are complete AND the user has run the manual version ≥3 times without surprise.
-- **A.** Yes, I've done it manually ≥3 times and it's stable
-- **B.** No, this would be my first or second run
+End of Step 3 with a concrete design. Proceed to Step 4 to see if it actually works.
 
-If B: **do not automate.** Run it manually a few more times first. Automation of an un-validated process multiplies the bugs.
+---
+
+## Step 4 — Accelerate (end-to-end works without fails)
+
+Hard-gated: Steps 1–3 must have user-confirmed answers in this conversation.
+
+Accelerate here means **get the thing running through the full flow with no failures.** Not a perf benchmark — an integration test against reality. Musk's version runs the full production line; yours runs the full flow.
+
+### Q4.1 — Has the Step 3 design been run end-to-end?
+
+`AskUserQuestion`:
+- **A.** Yes — flawless E2E run
+- **B.** Yes — but failures or errors along the way
+- **C.** Not yet — return when there's a result
+
+Branch:
+- **A** → proceed to Step 5
+- **B** → **LOOP BACK between Steps 2 and 3.** Delete what broke, simplify what's overly complex, re-optimise based on what reality just revealed. Do not proceed to Step 5 — fix what's broken first.
+- **C** → stop. Run it. Return with the result.
+
+Common failure modes that trigger the 2↔3 loop:
+- A component turned out to need more than its simplest form → Q2.4 was too aggressive, pick differently
+- A primitive was missing from Q1.3 → loop all the way back to Step 1
+- The design works but is too brittle for real use → Step 2 to cut scope, Step 3 to re-rank tradeoffs
+
+---
+
+## Step 5 — Automate
+
+Three-gate hard-enforcement: automate ONLY if **all three** are true in this conversation:
+
+1. The thing works end-to-end (Q4.1 = A)
+2. It's as simple as possible (Step 2 ran; Q2.4 chosen and Q2.6 named a cut)
+3. It's optimised (Step 3 ran, OR skipped intentionally because there were no real tradeoffs)
+
+If ANY of the three is unchecked → refuse and loop back to the failing gate.
+
+### Q5.1 — Has the manual version run flawless E2E for at least 3 consecutive runs?
+
+`AskUserQuestion`:
+- **A.** Yes — ≥3 flawless runs
+- **B.** No — fewer than 3 runs, or at least one failure
+
+If **B**: **do not automate.** Run manually until stable. Automating an unstable flow compounds the failures at machine speed.
+
+If **A**: proceed to Conclusion with the automation plan.
 
 ---
 
@@ -191,7 +230,7 @@ Always end with exactly this block:
 
 ```markdown
 ### Decision
-[Do | Don't do | Delete instead | Record for later]
+[Do | Don't do | Delete instead | Record for later | Loop back to Step N]
 
 ### Why (one sentence)
 ...
@@ -206,8 +245,8 @@ Always end with exactly this block:
 
 Trigger when the user pastes ≥3 feedback points at once.
 
-1. **Number the points.** Echo them back as a numbered list so the user can correct misreads.
-2. **For each point, run Q1.1 + Q1.2 only** (one `AskUserQuestion` per point, or batched into one question if they're short and similar — user's call).
+1. **Number the points.** Echo them back as a numbered list.
+2. **For each point, run Q1.4 + Q1.5 only** — the primitives map from Q1.3 is shared across points.
 3. **Build a verdict table:**
 
    ```
@@ -217,21 +256,20 @@ Trigger when the user pastes ≥3 feedback points at once.
    | 2 | ...   | Don't   | ... |
    ```
 
-4. Only points with verdict **Do** continue to Steps 2–3 (sequentially, still one question at a time).
+4. Only points with verdict **Do** continue to Step 2 (sequentially, one question at a time).
 5. Typical result: 5 points → 1–2 actionable.
 
 ---
 
 ## Anti-patterns to flag during questioning
 
-If the user's free-text answers include any of these, surface them:
-
 | Pattern in their answer | Flag |
 |---|---|
 | "Just in case…" / "for future flexibility" | "No one has asked for this yet — Step 1 verdict should be *Record*, not *Do*." |
-| "We need to auto-detect…" | "One config line almost always beats detection. Revisit Step 3." |
-| "Add a review/approval step…" | "Reacting to one incident with permanent process. Ask Q1.2 again." |
-| "Hire a new role to handle X…" | "Ask Step 3 first — can the work be simplified so it doesn't need a role?" |
+| "We need to auto-detect…" | "One config line almost always beats detection. Revisit Q2.4." |
+| "Let's automate this" (before Steps 1–4) | "Automate is Step 5. What are the primitives? Has it run end-to-end?" |
+| "Add a review/approval step…" | "Reacting to one incident with permanent process. Re-check Q1.5 frequency." |
+| "Hire a new role to handle X…" | "Can the work be simplified in Step 2 so it doesn't need a role?" |
 | "Switch from Tool A to Tool B…" | "Fix Tool A's config before migrating. Migration cost is almost always underestimated." |
 
 ---
@@ -240,20 +278,25 @@ If the user's free-text answers include any of these, surface them:
 
 > User: *"Should we add a caching layer to the API?"*
 >
-> Skill → Q1.1: `Is this actually broken right now?` → **A. Yes**
-> Skill → Q1.2: `How often?` → **A. Common**
-> Skill → Q1.3: `Who benefits?` → **A. Many users**
-> Skill → Q2.1: `What could you delete to make this disappear?` → *"We're fetching the same data on every render."*
-> Skill → Q2.2: `If you fix that, does the original problem still need solving?` → **A. No**
+> Q1.1 Goal → *"Page renders in <200ms."*
+> Q1.2 Gap → *"We're at 900ms; the DB round-trips dominate."*
+> Q1.3 Primitives → *"User model, session store, product list query."*
+> Q1.4 On-path? → **A. Now** (DB round-trips are blocking the goal)
+> Q1.5 Frequency → **A. Common**
+> Q2.1 Delete candidate → *"We're re-fetching the same product list on every render."*
+> Q2.2 Does deletion solve it? → **A. Yes** → Q2.3
+> Q2.3 Breaks a primitive? → **A. No** (the re-fetch is overhead on top of the query)
 >
-> **Conclusion:** Delete the redundant fetches. Don't add caching.
+> **Conclusion:** Delete the redundant fetches. Caching layer not needed.
 
 ---
 
-## Pre-Action Checklist (the skill has done its job if all are true)
+## Pre-Action Checklist
 
-- [ ] Step 1 ran — the user confirmed failure, frequency, and beneficiary
-- [ ] Step 2 ran — a deletion candidate was genuinely considered
-- [ ] Step 3 picked the smallest option the user would accept
-- [ ] Final Conclusion block is present with Decision, Why, Next action
-- [ ] No question was batched, no answer was guessed
+- [ ] Step 1 — goal, gap, primitives, on-path, frequency all answered
+- [ ] Step 2 — delete candidate considered; simplest version chosen; tradeoffs and cuts named
+- [ ] Step 3 — ran only if real tradeoffs existed; otherwise explicitly skipped
+- [ ] Step 4 — ran only if reaching for automation or integration; loop-back used if E2E failed
+- [ ] Step 5 — ran only if all three gates are satisfied
+- [ ] Final Conclusion block present with Decision, Why, Next action
+- [ ] No question was batched; no answer was guessed
