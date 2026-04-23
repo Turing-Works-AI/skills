@@ -13,7 +13,7 @@ The five steps:
 
 1. **Question** the requirement — reason from first principles; what's the goal, gap, and the primitives on the critical path?
 2. **Delete and Simplify** — remove anything unnecessary, find the minimum version of what remains, and name the tradeoffs.
-3. **Optimise** — given the tradeoffs from Step 2, pick the configuration that best serves the goal.
+3. **Optimise what remains** — now that redundant steps are gone, design how the surviving pieces interact; list options, tradeoffs, and a ranked set of experiments to try.
 4. **Accelerate** — run the design end-to-end. If it fails, **loop back between Steps 2 and 3** — delete broken pieces, simplify, re-optimise — until it runs clean.
 5. **Automate** — only after the thing works end-to-end, is as simple as possible, and is optimised.
 
@@ -156,24 +156,35 @@ End of Step 2. If Q2.4 = A/B and Q2.5 surfaced no meaningful tradeoffs, go strai
 
 ---
 
-## Step 3 — Optimise
+## Step 3 — Optimise what remains
 
-Given the tradeoffs from Q2.5, choose the configuration that best serves the goal from Q1.1. Optimising isn't about picking the fastest option — it's about picking the one that minimises total complexity while keeping the critical-path primitives intact.
+Step 2 removed redundancy. Step 3 asks: **given what's left, how should the surviving pieces interact?** What's the optimal workflow? What are the handoffs between parts (functions, services, humans)? You're not picking a single answer — you're generating options, naming their tradeoffs, and producing a ranked list of experiments to test.
 
-Skip Step 3 entirely if Step 2 ended with a one-liner or tiny function and no real tradeoffs — nothing to optimise.
+Skip Step 3 entirely if Step 2 ended with a single atomic change (one config line, one small function) — there are no interactions to design.
 
-### Q3.1 — Which Q2.5 tradeoff matters most to the goal?
+### Q3.1 — How do the remaining pieces need to interact?
 
-Free-text. Force a single ranking. If the user waffles, ask them to name the single tradeoff that, if chosen wrong, most threatens the goal.
+Free-text. Describe the flow: what runs first, what hands off to what, where humans are in the loop, where async boundaries sit, where state lives. The goal is a concrete picture of *how* the surviving pieces compose, not just *what* they are.
 
-### Q3.2 — What's the optimal configuration?
+### Q3.2 — What are the options and tradeoffs for that interaction?
 
-`AskUserQuestion`:
-- **A.** Ship the simplest version and accept its tradeoffs
-- **B.** Simplest-plus-one: capture the most important tradeoff, nothing else
-- **C.** A different configuration entirely (free-text follow-up)
+Free-text. List 2–4 workflow/handoff variants, each with the tradeoff it captures. Common axes to prompt the user with if they stall:
+- Sync call vs async queue
+- Eager computation vs lazy-on-demand
+- Centralised service vs distributed responsibility
+- Automated handoff vs human review gate
+- Tight coupling vs explicit contract
+- Single shared store vs per-component state
 
-End of Step 3 with a concrete design. Proceed to Step 4 to see if it actually works.
+### Q3.3 — Rank them as experiments to try
+
+Free-text. Produce a ranked list (2–4 items, most-promising first). Each entry should be:
+- **Name:** short label for the variant
+- **Hypothesis:** the one thing it assumes will hold true
+- **Cheapest test:** the smallest thing you could run to find out if the hypothesis breaks
+- **Signal:** what result would invalidate it
+
+End of Step 3 with: (a) a concrete picture of the surviving workflow, and (b) a ranked experiment list. Step 4 runs the top-ranked experiment end-to-end.
 
 ---
 
@@ -183,7 +194,7 @@ Hard-gated: Steps 1–3 must have user-confirmed answers in this conversation.
 
 Accelerate here means **get the thing running through the full flow with no failures.** Not a perf benchmark — an integration test against reality. Musk's version runs the full production line; yours runs the full flow.
 
-### Q4.1 — Has the Step 3 design been run end-to-end?
+### Q4.1 — Has the top-ranked experiment from Step 3 been run end-to-end?
 
 `AskUserQuestion`:
 - **A.** Yes — flawless E2E run
@@ -192,13 +203,14 @@ Accelerate here means **get the thing running through the full flow with no fail
 
 Branch:
 - **A** → proceed to Step 5
-- **B** → **LOOP BACK between Steps 2 and 3.** Delete what broke, simplify what's overly complex, re-optimise based on what reality just revealed. Do not proceed to Step 5 — fix what's broken first.
+- **B** → **LOOP BACK between Steps 2 and 3.** Delete what broke, simplify what's overly complex, then regenerate or re-rank the experiment list based on what reality just revealed. Do not proceed to Step 5 — fix what's broken first. If the top experiment invalidated cleanly, try the next-ranked one.
 - **C** → stop. Run it. Return with the result.
 
 Common failure modes that trigger the 2↔3 loop:
 - A component turned out to need more than its simplest form → Q2.4 was too aggressive, pick differently
 - A primitive was missing from Q1.3 → loop all the way back to Step 1
-- The design works but is too brittle for real use → Step 2 to cut scope, Step 3 to re-rank tradeoffs
+- The top experiment's hypothesis broke → drop it, re-rank, try the next-most-promising handoff from Q3.3
+- The design works but is too brittle → Step 2 to cut scope, Step 3 to re-generate workflow options
 
 ---
 
@@ -295,7 +307,7 @@ Trigger when the user pastes ≥3 feedback points at once.
 
 - [ ] Step 1 — goal, gap, primitives, on-path, frequency all answered
 - [ ] Step 2 — delete candidate considered; simplest version chosen; tradeoffs and cuts named
-- [ ] Step 3 — ran only if real tradeoffs existed; otherwise explicitly skipped
+- [ ] Step 3 — ran only if Step 2 left multiple pieces with interactions to design; produced a workflow picture + ranked experiments, or explicitly skipped
 - [ ] Step 4 — ran only if reaching for automation or integration; loop-back used if E2E failed
 - [ ] Step 5 — ran only if all three gates are satisfied
 - [ ] Final Conclusion block present with Decision, Why, Next action
