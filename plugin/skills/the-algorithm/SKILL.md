@@ -35,6 +35,7 @@ The five steps:
 - **Free-text when needed.** Some questions don't have preset options. Ask in plain text — don't force multiple-choice when the answer space is open.
 - **Never answer for the user.** If you find yourself guessing, stop and ask.
 - **Restate answers back.** After each question, echo the answer in one line so the user can correct a misread before the next question.
+- **Keep every prompt crisp.** The Q descriptions below are reference material for you — when you actually fire `AskUserQuestion`, the user-facing text should be one short sentence plus the options. Don't paste rationale, examples, or framing into the prompt. The user should feel like they're in a fast conversation, not filling out a 20-question form.
 
 ---
 
@@ -56,7 +57,7 @@ Free-text. Two sentences: where things are now, and the specific gap between now
 
 ### Q1.3 — What primitives sit on the critical path from current state → goal?
 
-Free-text; ask for a short list (3–7 items). Prompt: *"What are the irreducible building blocks that have to work for the goal to be reached? Strip away everything derivative."* Offer examples if they stall — a data model, a network call, a consent step, a UI primitive like a button. These are the things you will NOT delete in Step 2.
+Free-text; ask for a short list (3–7 items). The prompt to fire: *"Primitives = the irreducible things on the critical path (data model, network hop, human consent step, etc.). Everything else is composition and can be deleted or re-derived. What are yours?"* These are the things you will NOT delete in Step 2.
 
 ### Q1.4 — Does the request in front of us move one of those critical-path primitives?
 
