@@ -14,7 +14,7 @@ The five steps:
 1. **Question** the requirement — reason from first principles; what's the goal, gap, and the primitives on the critical path?
 2. **Delete and Simplify** — remove anything unnecessary, find the minimum version of what remains, and name the tradeoffs.
 3. **Optimise what remains** — now that redundant steps are gone, design how the surviving pieces interact; list options, tradeoffs, and a ranked set of experiments to try.
-4. **Accelerate** — run the design end-to-end. If it fails, **loop back between Steps 2 and 3** — delete broken pieces, simplify, re-optimise — until it runs clean.
+4. **Accelerate** — urgency is the point. Run the top experiment end-to-end as fast as possible (the skill can build and test it in a worktree on request). If it fails, **loop back between Steps 2 and 3** until it runs clean.
 5. **Automate** — only after the thing works end-to-end, is as simple as possible, and is optimised.
 
 ## When to invoke
@@ -168,7 +168,7 @@ Free-text. Describe the flow: what runs first, what hands off to what, where hum
 
 ### Q3.2 — What are the options and tradeoffs for that interaction?
 
-Free-text. List 2–4 workflow/handoff variants, each with the tradeoff it captures. Common axes to prompt the user with if they stall:
+Free-text. List 2–4 workflow/handoff variants, each with the tradeoff it captures. For every option, **explicitly call out whether it prioritises (a) "works now, even if brittle" or (b) "more robust long-term but higher initial effort"** — this works-now-vs-long-term axis is the key tension Step 4 will act on. Common axes to prompt the user with if they stall:
 - Sync call vs async queue
 - Eager computation vs lazy-on-demand
 - Centralised service vs distributed responsibility
@@ -183,8 +183,9 @@ Free-text. Produce a ranked list (2–4 items, most-promising first). Each entry
 - **Hypothesis:** the one thing it assumes will hold true
 - **Cheapest test:** the smallest thing you could run to find out if the hypothesis breaks
 - **Signal:** what result would invalidate it
+- **Mode:** "works-now (brittle)" OR "long-term robust" — which tradeoff this experiment buys
 
-End of Step 3 with: (a) a concrete picture of the surviving workflow, and (b) a ranked experiment list. Step 4 runs the top-ranked experiment end-to-end.
+End of Step 3 with: (a) a concrete picture of the surviving workflow, (b) a ranked experiment list, and (c) each experiment tagged with its works-now-vs-long-term mode. Step 4 acts on the top-ranked experiment — pick brittle-but-fast when you need to learn, robust when the cost of rework is higher than the cost of delay.
 
 ---
 
@@ -192,9 +193,37 @@ End of Step 3 with: (a) a concrete picture of the surviving workflow, and (b) a 
 
 Hard-gated: Steps 1–3 must have user-confirmed answers in this conversation.
 
+> **Urgency is the point.** Get the simplest version running end-to-end as fast as humanly possible. Maniacal speed beats perfect planning.
+
 Accelerate here means **get the thing running through the full flow with no failures.** Not a perf benchmark — an integration test against reality. Musk's version runs the full production line; yours runs the full flow.
 
-### Q4.1 — Has the top-ranked experiment from Step 3 been run end-to-end?
+### Q4.0 — How should we accelerate the top experiment?
+
+`AskUserQuestion`:
+- **A.** Build it now — create a worktree/branch, implement the minimal change, run E2E, report result
+- **B.** I'll build it manually — give me the exact minimal change to make, then I'll come back with the result
+- **C.** Not ready — I need to adjust the experiment first
+
+Branch:
+- **A** → proceed to the auto-build flow below, then apply Q4.1 to the result
+- **B** → emit one concrete paragraph naming exactly what to change (files, lines, config keys), citing the Q1.3 primitives, the Q3.3 hypothesis, and the Q2.6 cut-scope. Then wait at Q4.1.
+- **C** → loop back to Step 3. Don't ship an experiment the user isn't confident in.
+
+**Auto-build flow (Q4.0 = A):**
+1. Create an isolated workspace. Prefer `git worktree add ../worktrees/accel-<slug>` where `<slug>` is a short kebab-case version of the experiment name; fall back to a branch `accel-<slug>` if worktrees aren't available. Tell the user which you chose.
+2. Implement ONLY the minimal change from Q2.4. Do not scaffold, do not add tests beyond what E2E needs, do not pre-build for the losing experiments. If you find yourself writing setup code beyond the change, stop and ask.
+3. Commit with a message that references: the primitives from Q1.3, the tradeoff mode from Q3.3 (works-now vs long-term), and the hypothesis the experiment is testing.
+4. Run the full E2E flow — test suite, manual run, or integration test as appropriate for the codebase.
+5. Surface pass/fail and relevant logs/artifacts immediately.
+6. If the run fails, ask whether to delete the branch/worktree before looping back to Step 2↔3.
+
+**Guardrails that MUST hold in branch A:**
+- Explicit user consent was captured via Q4.0 = A — do not infer consent from anything else.
+- Scope is limited to the minimal change from Q2.4. Enforce this hard — rework-creep kills the urgency that makes this step work.
+- Never push the branch, open a PR, or deploy without a separate user confirmation. Auto-build is for local verification, not shipping.
+- If the experiment fails, the default offer is to delete the branch and loop back — do not polish a failing approach.
+
+### Q4.1 — What was the E2E result?
 
 `AskUserQuestion`:
 - **A.** Yes — flawless E2E run
