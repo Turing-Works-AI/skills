@@ -27,6 +27,7 @@ skills/
 | `proposal-letter` | Converting a Turing Works slide deck or proposal into a BCG-style Word document (.docx). Triggers on "letter version", "word version of the deck", "make this a doc", "BCG format". |
 | `tw-agreements` | Generating a Turing Works client engagement agreement as a .docx. Triggers on "agreement", "contract", "engagement letter", "SOW", "statement of work". |
 | `tw-data-access-request` | Creating a branded data access request document for a new client engagement. Triggers on "DAR", "data access", "access request", "onboarding doc", "what access do we need". |
+| `the-algorithm` | Interactive decision framework adapted from Elon Musk's five-step method. Walks through discrete AskUserQuestion prompts — one at a time — to find the real bottleneck before acting. Use before features, refactors, migrations, new tools/vendors/hires, process changes, or any non-trivial decision. Most decisions end at Step 3 (Simplify). |
 
 ---
 
