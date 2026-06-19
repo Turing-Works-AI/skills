@@ -68,6 +68,21 @@ c) recruit, solicit, or induce any employee, contractor, or representative of Cl
 
 ---
 
+## Subcontracting (optional clause)
+
+Include this as a standalone numbered clause (placed **after** Non-Compete, so existing sections do not renumber) whenever TW will use a subcontractor on the engagement. Informing the client is the trigger James requires; a client acknowledgement ("sounds good") is sufficient. Replace `{subcontractor_name}` with the named contractor, or omit that sentence to keep it generic.
+
+**11. Subcontracting**
+TW may engage subcontractors and other third-party personnel to perform any part of the Services. The Client acknowledges and approves that a significant portion of the work under this Agreement will be performed by {subcontractor_name}, an independent contractor engaged by TW, and that deliverables may be produced by that subcontractor.
+
+TW remains responsible for the Services and for the acts and omissions of its subcontractors as if they were TW's own. TW will ensure that each subcontractor is bound by confidentiality and intellectual property obligations no less protective of the Client than those set out in this Agreement, so that all Work Product produced by a subcontractor vests in the Client in accordance with Section 9 (Intellectual Property).
+
+The Client's approval of TW's subcontractors will not be unreasonably withheld. TW will notify the Client before engaging any additional subcontractor with material involvement in the Services.
+
+Note: This clause is the head-agreement counterpart to the TW subcontractor agreement (see `subcontractor-clauses.md`). The two are designed to operate back-to-back.
+
+---
+
 ## Promotion Rights (standard bullets)
 
 These go under Section 2 > Promotion Rights sub-header:
