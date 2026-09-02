@@ -1,7 +1,7 @@
 ---
 name: turing-works-brand
 description: >-
-  The Turing Works (TW) visual identity, covering the symbol, colour palette, typography and layout rules, and how to apply them. Use this skill whenever James asks for anything that carries the Turing Works brand (slides, decks, one-pagers, proposals, documents, website pages, charts, social images, email signatures, case studies, Notion pages, or any artefact a client or prospect will see). Also use it whenever he mentions the TW logo, mark, symbol, brand colours, blueprint blue, vermilion, Plus Jakarta Sans, "the chain", or asks whether something is on brand. Trigger even if he only says "make it look like TW" or "brand this". Do not use for Mr Pip product UI unless he says the two should match.
+  The Turing Works (TW) visual identity, covering the symbol, colour palette, typography and layout rules, and how to apply them. Use this skill whenever the user asks for anything that carries the Turing Works brand (slides, decks, one-pagers, proposals, documents, website pages, charts, social images, email signatures, case studies, Notion pages, or any artefact a client or prospect will see). Also use it whenever they mention the TW logo, mark, symbol, brand colours, blueprint blue, vermilion, Plus Jakarta Sans, "the chain", or ask whether something is on brand. Trigger even if they only say "make it look like TW" or "brand this". For slide decks specifically, this skill defines the identity and `tw-slides` applies it — read both, and `tw-slides` never overrides what is here. Do not use for Mr Pip product UI unless the user says the two should match.
 ---
 
 # Turing Works brand
@@ -59,29 +59,38 @@ right in 12 px blue-grey: "Data, analytics and AI for B2B SaaS".
 
 ## 2. Colour
 
-Ink on paper, like a technical drawing that has been checked with a red pen.
+Ink on white, like a technical drawing that has been checked with a red pen.
 
-| Role   | Name           | Hex       | Job |
-|--------|----------------|-----------|-----|
-| Ink    | Blueprint blue | `#1B3A5C` | All finished things: type, lines, the mark, chart lines |
-| Paper  | Warm off-white | `#F4F1EA` | The surface. Never pure white in print or marketing |
-| Pen    | Vermilion      | `#D9432A` | **Only where two things meet**: the mark's overlaps, the reconciled number, the one thing on a page to look at |
-| Guide  | Pale blueprint | `#BFD3E6` | Grids, baselines, axes, construction lines. Shows the work; never carries meaning |
-| Muted  | Blue-grey      | `#5C7189` | Secondary text, captions, table headers, axis labels |
+| Role    | Name           | Hex       | Job |
+|---------|----------------|-----------|-----|
+| Ink     | Blueprint blue | `#1B3A5C` | All finished things: type, lines, the mark, chart lines. Also the background of an inverted surface |
+| Surface | White          | `#FFFFFF` | **The default surface everywhere.** Slides, documents, web, email, charts, social |
+| Pen     | Vermilion      | `#D9432A` | **Only where two things meet**: the mark's overlaps, the reconciled number, the one thing on a page to look at |
+| Guide   | Pale blueprint | `#BFD3E6` | Grids, baselines, axes, construction lines. Shows the work; never carries meaning |
+| Muted   | Blue-grey      | `#5C7189` | Secondary text, captions, table headers, axis labels |
+| Paper   | Warm off-white | `#F4F1EA` | Restricted. Large-format print and physical collateral only — see rule 5 |
 
 ### Rules
 
-1. **Vermilion appears at most once per page** apart from the mark. Never a
+1. **White is the surface. Use it as much as possible.** Slides, documents,
+   web pages, charts, email, social — all white. Warm off-white is a
+   restricted colour, reserved for large-format physical print (a printed
+   report cover, an exhibition board) where pure white glares. If you are
+   unsure which surface applies, it is white.
+2. **When a surface must be dark, it is ink, not black or grey.** Blueprint
+   blue `#1B3A5C` with white type and pale-blueprint guides — the drawing
+   inverted, not a different brand. Use it for section breaks and covers
+   only, never for a page of body copy.
+3. **Vermilion appears at most once per page** apart from the mark. Never a
    background, button fill, heading, or state colour. If it's on two things,
    one of them is wrong.
-2. **Guide lines are always visible somewhere.** A page with no guides has
+4. **Guide lines are always visible somewhere.** A page with no guides has
    forgotten what the brand is. Use them as faint baselines, margins, and
    chart gridlines.
-3. **No black.** The ink is blue. If something needs to be darker, make it
+5. **No black.** The ink is blue. If something needs to be darker, make it
    smaller or move it.
-4. **No green, no purple, no gradients, no neutral grey surfaces.**
-5. **White is the screen surface** (LinkedIn, email, Notion, embedded UI);
-   paper is the print and marketing surface. Same ink, same pen on both.
+6. **No green, no purple, no gradients, no tinted or grey panels.** A card is
+   defined by its border, not by a change of surface.
 
 ## 3. Type
 
@@ -102,10 +111,11 @@ natively and free to install and embed in PowerPoint on Mac and Windows.
 
 ## 4. Layout
 
-- Generous paper margins. One or two faint guide lines crossing the page
+- Generous margins on white. One or two faint guide lines crossing the page
   (a baseline under the header, a vertical at the left margin) in the guide
   colour, 0.7 px.
-- Cards: 0.8 px ink border, 8 px radius, paper fill. No shadows.
+- Cards: 0.8 px ink border, 8 px radius, white fill. No shadows, no tinted
+  fills — a card is defined by its border, not by a change of surface.
 - Hierarchy comes from size, spacing and colour before weight.
 - One idea per slide or page. One vermilion element.
 
@@ -132,10 +142,10 @@ no "unlock", no "journey", no exclamation marks.
 - [ ] Mark is the original chain, imperfect overlap intact, stroke in ink
 - [ ] Vermilion on the mark's overlaps and at most one other place
 - [ ] Guide lines visible somewhere on the page
-- [ ] No black, no green, no purple, no gradients
+- [ ] No black, no green, no purple, no gradients, no grey or tinted panels
 - [ ] Plus Jakarta Sans only, weights 400 and 600 only
 - [ ] Every number column right-aligned with tabular figures
-- [ ] Paper surface for print and marketing, white only for screen contexts
+- [ ] White surface, unless it is large-format print or a deliberate ink section break
 - [ ] One idea, one vermilion, one font
 
 See `references/sample-page.html` for a complete reference page that applies

@@ -6,11 +6,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1B3A5C; --paper: #F4F1EA; --pen: #D9432A; --guide: #BFD3E6; --muted: #5C7189;
+    --ink: #1B3A5C; --surface: #FFFFFF; --pen: #D9432A; --guide: #BFD3E6; --muted: #5C7189;
   }
-  html, body { margin: 0; background: #E9E5DC; }
+  html, body { margin: 0; background: #EDF1F5; }
   body { font-family: 'Plus Jakarta Sans', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink); }
-  .page { position: relative; overflow: hidden; width: 760px; margin: 40px auto; padding: 34px 40px 40px; background: var(--paper); border-radius: 12px; }
+  .page { position: relative; overflow: hidden; width: 760px; margin: 40px auto; padding: 34px 40px 40px; background: var(--surface); border: 0.8px solid var(--guide); border-radius: 12px; }
   .guides { position: absolute; inset: 0; pointer-events: none; }
   .content { position: relative; }
   .header { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
@@ -28,6 +28,9 @@
   th:first-child, td:first-child { text-align: left; }
   td { text-align: right; padding: 6px 22px 6px 0; border-top: 0.7px solid var(--guide); }
   .pen { color: var(--pen); font-weight: 600; }
+  .band { margin-top: 40px; padding: 22px 24px; background: var(--ink); border-radius: 8px; }
+  .band-label { font-size: 11px; color: var(--guide); margin-bottom: 8px; }
+  .band p { font-size: 15px; line-height: 1.5; margin: 0; color: #FFFFFF; max-width: 520px; }
 </style>
 </head>
 <body>
@@ -73,6 +76,12 @@
           <text x="58" y="108" font-size="10.5" fill="#5C7189">Billing, dashed</text>
         </svg>
       </div>
+    </div>
+
+    <div class="band">
+      <div class="band-label">Section break — the inverted surface</div>
+      <p>Ink background, white type, pale-blueprint guides. Covers and section
+        dividers only. Everything else is white.</p>
     </div>
 
     <table>

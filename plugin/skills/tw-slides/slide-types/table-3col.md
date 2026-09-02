@@ -6,18 +6,25 @@ This is the generalised table component. The `workplan` component is one specifi
 
 **Visual reference:** `table-3col-example.pdf` / `table-3col-example.pptx`
 
+> **⚠️ The example file predates the current identity.** It still carries the
+> retired teal/navy/cream palette and Inter Tight. Use it for layout and
+> geometry only — never for colour or font. Until it is regenerated, the
+> default build path for this slide type is **code generation**, not
+> duplication.
+
+
 ---
 
 ## Build workflow
 
-**Default — duplicate from example.** Use the `anthropic-skills:pptx` editing flow (`editing.md`):
+**Default — generate from code.** Use the `pptxgenjs` code template at the bottom of this file; it carries the current palette and font.
+
+**Suspended — duplicate from example.** Only once `table-3col-example.pptx` has been regenerated in the current palette. Use the `anthropic-skills:pptx` editing flow (`editing.md`):
 
 1. `python scripts/office/unpack.py table-3col-example.pptx unpacked/`
 2. Duplicate the example slide with `add_slide.py`.
 3. Swap text in the duplicated slide's XML — preserve `<a:pPr>` and run-property formatting. If the source has fewer rows than the template, **delete the entire row's elements** (cells, dividers), don't just clear the text.
 4. `python scripts/clean.py unpacked/`, then `python scripts/office/pack.py unpacked/ output.pptx --original table-3col-example.pptx`.
-
-**Fallback — generate from code.** Use the `pptxgenjs` code template at the bottom of this file when the row count or column structure differs materially from the example.
 
 After either path, run the visual-QA loop from `anthropic-skills:pptx`.
 
@@ -93,9 +100,9 @@ After either path, run the visual-QA loop from `anthropic-skills:pptx`.
 
 | Run | Content | Font | Size | Weight | Colour |
 |-----|---------|------|------|--------|--------|
-| 1 | `{{section_label}}` | Inter Tight | 16pt | Bold | `#518C94` |
-| 2 | `"  \|  "` | Inter Tight | 16pt | Regular | `#E8E8E4` |
-| 3 | `{{action_title}}` | Inter Tight | 16pt | Regular | `#072E45` |
+| 1 | `{{section_label}}` | Plus Jakarta Sans | 16pt | Bold | `#5C7189` |
+| 2 | `"  \|  "` | Plus Jakarta Sans | 16pt | Regular | `#FFFFFF` |
+| 3 | `{{action_title}}` | Plus Jakarta Sans | 16pt | Regular | `#1B3A5C` |
 
 ### Column header pills
 
@@ -103,8 +110,8 @@ After either path, run the visual-QA loop from `anthropic-skills:pptx`.
 |----------|-------|
 | Shape | Rounded rectangle, corner radius adj = 12500 |
 | Size | w: 2.513 in, h: 0.240 in |
-| Fill | `#072E45` (Midnight Navy) |
-| Text | `{{column_header}}`, Inter Tight, 8pt, Bold, `#FFFFFF`, Centre |
+| Fill | `#1B3A5C` (Ink) |
+| Text | `{{column_header}}`, Plus Jakarta Sans, 8pt, Bold, `#FFFFFF`, Centre |
 
 ### Row labels
 
@@ -121,18 +128,18 @@ Rounded rectangle pill + text overlay, centre aligned.
 
 | Position | Fill | Usage |
 |----------|------|-------|
-| Row 1 | `#072E45` (Midnight Navy) | Primary category |
-| Row 2 | `#518C94` (Teal) | Secondary category |
-| Row 3 | `#B8AD90` (Sand) | Tertiary category |
+| Row 1 | `#1B3A5C` (Ink) | Primary category |
+| Row 2 | `#5C7189` (Blue-grey) | Secondary category |
+| Row 3 | `#5C7189` (Blue-grey) | Tertiary category |
 | Row 4+ | Cycle through above | |
-| Summary row | None (transparent) | Label text in `#0D425C` |
+| Summary row | None (transparent) | Label text in `#1B3A5C` |
 
 **Label text:**
 
 | Line | Font | Size | Weight | Colour |
 |------|------|------|--------|--------|
-| Primary | Inter Tight | 8pt | Bold | `#FFFFFF` |
-| Sub-label | Inter Tight | 7pt | Regular | `#FFFFFF` |
+| Primary | Plus Jakarta Sans | 8pt | Bold | `#FFFFFF` |
+| Sub-label | Plus Jakarta Sans | 7pt | Regular | `#FFFFFF` |
 
 ### Content cells
 
@@ -140,21 +147,21 @@ Rounded rectangle pill + text overlay, centre aligned.
 
 | Property | Value |
 |----------|-------|
-| Fill | `#F0F7F5` (Light Mint) |
-| Border | 0.75pt solid `#ADCFC9` |
+| Fill | `#FFFFFF` (White) |
+| Border | 0.75pt solid `#BFD3E6` |
 
 **Text:**
 
 | Property | Value |
 |----------|-------|
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 5.5pt |
 | Weight | Regular |
-| Colour | `#072E45` |
+| Colour | `#1B3A5C` |
 | Alignment | Left |
 | Anchor | Top |
 | Line spacing | 108% |
-| Bullet | `●` disc, `#072E45` |
+| Bullet | `●` disc, `#1B3A5C` |
 
 ### Summary row cells
 
@@ -162,10 +169,10 @@ Same cell background as content cells.
 
 | Property | Value |
 |----------|-------|
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 6.5pt |
 | Weight | Bold |
-| Colour | `#072E45` |
+| Colour | `#1B3A5C` |
 | Line spacing | 108% |
 | Prefix | `✓` (checkmark in text) |
 
@@ -177,7 +184,7 @@ Horizontal dashed lines separating row groups.
 |----------|-------|
 | x | 0.539 in |
 | Width | 8.96 in |
-| Stroke | 0.75pt, dashed, `#666666` |
+| Stroke | 0.75pt, dashed, `#5C7189` |
 
 ### Optional spanning banner
 
@@ -186,9 +193,9 @@ Rounded rect spanning all three columns, placed between headers and first row.
 | Property | Value |
 |----------|-------|
 | Height | 0.22 in |
-| Fill | `#F0F7F5` |
-| Border | 0.75pt `#ADCFC9`, corner radius adj = 13636 |
-| Text | Inter Tight, 7pt, `#072E45`, Centre |
+| Fill | `#FFFFFF` |
+| Border | 0.75pt `#BFD3E6`, corner radius adj = 13636 |
+| Text | Plus Jakarta Sans, 7pt, `#1B3A5C`, Centre |
 
 ### Footnotes / source
 
@@ -197,16 +204,16 @@ Rounded rect spanning all three columns, placed between headers and first row.
 | Position | x: 0.842 in, y: 5.086 in |
 | Size | w: 9.0 in, h: 0.2 in |
 | Anchor | Bottom |
-| Line 1 | `{{footnotes}}`, Inter Tight, 8pt, Regular, `#B8AD90` |
-| Line 2 | `{{source}}`, Inter Tight, 8pt, Italic, `#B8AD90` |
+| Line 1 | `{{footnotes}}`, Plus Jakarta Sans, 8pt, Regular, `#5C7189` |
+| Line 2 | `{{source}}`, Plus Jakarta Sans, 8pt, Italic, `#5C7189` |
 
 ### Corner triangle + page badge
 
 | Element | x | y | w | h | Fill |
 |---------|---|---|---|---|------|
-| Triangle | 9.118 in | -0.018 in | 0.865 in | 0.9 in | `#072E45`, rotation -90° |
+| Triangle | 9.118 in | -0.018 in | 0.865 in | 0.9 in | `#1B3A5C`, rotation -90° |
 | Badge | 9.589 in | 0.109 in | 0.3 in | 0.3 in | `#FFFFFF` |
-| Badge text | `{{slide_number}}`, Calibri, 12pt, `#000000`, Centre |
+| Badge text | `{{slide_number}}`, Calibri, 12pt, `#1B3A5C`, Centre |
 
 ### Bottom accent bar
 
@@ -214,7 +221,7 @@ Rounded rect spanning all three columns, placed between headers and first row.
 |----------|-------|
 | y | 5.525 in |
 | Size | w: 10.0 in, h: 0.1 in |
-| Fill | `#518C94` |
+| Fill | `#5C7189` |
 
 ---
 
@@ -222,7 +229,7 @@ Rounded rect spanning all three columns, placed between headers and first row.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `section_label` | string | Yes | Left part of title (bold teal) |
+| `section_label` | string | Yes | Left part of title (SemiBold blue-grey) |
 | `action_title` | string | Yes | Right part of title (conclusion statement) |
 | `sticker` | string | No | Status badge (e.g. "To discuss") |
 | `columns` | object[] | Yes | Array of 3 column header objects with `label` |
@@ -240,7 +247,7 @@ Rounded rect spanning all three columns, placed between headers and first row.
 rows:
   - label: "Row category name"
     sub_label: "Optional sub-label"     # optional
-    colour: "#072E45"                   # optional, defaults to rotation
+    colour: "#1B3A5C"                   # optional, defaults to rotation
     cells:
       - # Column 1 bullets
         - "Bullet point one"
@@ -294,42 +301,45 @@ function addTable3ColSlide(pptx, {
   const PILL_H = 0.240;
   const PILL_RADIUS = 0.08;
 
-  // --- Colours ---
-  const NAVY = '072E45';
-  const TEAL = '518C94';
-  const SAND = 'B8AD90';
-  const MINT = 'F0F7F5';
-  const CELL_BORDER = 'ADCFC9';
-  const LIGHT_BLUE = 'BBD6EE';
-  const DIVIDER_GREY = '666666';
-  const SEPARATOR = 'E8E8E4';
-  const DARK_TEAL = '0D425C';
-  const ROW_COLOURS = [NAVY, TEAL, SAND];
+  // --- Colours (turing-works-brand palette) ---
+  const INK = '1B3A5C';      // type, rules, pills, the mark
+  const SURFACE = 'FFFFFF';  // every fill
+  const PEN = 'D9432A';      // at most one element per slide
+  const GUIDE = 'BFD3E6';    // borders, dividers, construction lines
+  const MUTED = '5C7189';    // captions, source lines, secondary labels
+
+  const CELL_FILL = SURFACE;
+  const CELL_BORDER = GUIDE;
+  const SEPARATOR = GUIDE;
+  // Row labels are all ink. Colour no longer distinguishes rows — the guide
+  // rules and the row label do. Set `row.colour = PEN` on the single row the
+  // slide is actually about, and on no other.
+  const ROW_LABEL = INK;
 
   // --- Typography ---
-  const FONT = 'Inter Tight';
+  const FONT = 'Plus Jakarta Sans';
 
   const slide = pptx.addSlide();
-  slide.background = { color: 'FFFFFF' };
+  slide.background = { color: SURFACE };
 
   const colX = columns.map((_, i) => COL_LEFT + i * (COL_W + COL_GAP));
 
   // Title bar
   slide.addText([
-    { text: sectionLabel, options: { fontFace: FONT, fontSize: 16, bold: true, color: TEAL } },
+    { text: sectionLabel, options: { fontFace: FONT, fontSize: 16, bold: true, color: MUTED } },
     { text: '  |  ', options: { fontFace: FONT, fontSize: 16, color: SEPARATOR } },
-    { text: actionTitle, options: { fontFace: FONT, fontSize: 16, color: NAVY } }
+    { text: actionTitle, options: { fontFace: FONT, fontSize: 16, color: INK } }
   ], { x: GRID_LEFT, y: 0.22, w: 9.0, h: 0.55, valign: 'top', margin: 0 });
 
   // Status badge
   if (sticker) {
     slide.addShape(pptx.ShapeType.rect, {
       x: 3.399, y: -0.012, w: 2.703, h: 0.2,
-      fill: { color: LIGHT_BLUE }, line: { color: '333333', width: 0.75 }
+      fill: { color: SURFACE }, line: { color: INK, width: 0.75 }
     });
     slide.addText(sticker, {
       x: 3.399, y: -0.012, w: 2.703, h: 0.2,
-      fontFace: FONT + ' Light', fontSize: 12, color: NAVY,
+      fontFace: FONT, fontSize: 12, color: INK,
       align: 'center', margin: 0
     });
   }
@@ -338,7 +348,7 @@ function addTable3ColSlide(pptx, {
   columns.forEach((col, i) => {
     slide.addShape(pptx.ShapeType.roundRect, {
       x: colX[i], y: 1.011, w: COL_W, h: PILL_H,
-      fill: { color: NAVY }, rectRadius: PILL_RADIUS
+      fill: { color: INK }, rectRadius: PILL_RADIUS
     });
     slide.addText(col.label, {
       x: colX[i], y: 1.011, w: COL_W, h: PILL_H,
@@ -353,12 +363,12 @@ function addTable3ColSlide(pptx, {
     const bannerW = colX[2] + COL_W - COL_LEFT;
     slide.addShape(pptx.ShapeType.roundRect, {
       x: COL_LEFT, y: 1.286, w: bannerW, h: 0.22,
-      fill: { color: MINT }, line: { color: CELL_BORDER, width: 0.75 },
+      fill: { color: CELL_FILL }, line: { color: CELL_BORDER, width: 0.75 },
       rectRadius: 0.08
     });
     slide.addText(banner, {
       x: COL_LEFT, y: 1.286, w: bannerW, h: 0.22,
-      fontFace: FONT, fontSize: 7, color: NAVY,
+      fontFace: FONT, fontSize: 7, color: INK,
       align: 'center', valign: 'middle', margin: 0
     });
     contentStartY = 1.551;
@@ -369,7 +379,7 @@ function addTable3ColSlide(pptx, {
   rows.forEach((row, rowIdx) => {
     const rowY = contentStartY + rowIdx * rowSpacing;
     const rowH = 0.62 + (row.cells.some(c => c.length > 3) ? 0.1 : 0);
-    const labelColour = row.colour || ROW_COLOURS[rowIdx % ROW_COLOURS.length];
+    const labelColour = row.colour || ROW_LABEL;
 
     // Row label
     slide.addShape(pptx.ShapeType.roundRect, {
@@ -392,12 +402,12 @@ function addTable3ColSlide(pptx, {
     row.cells.forEach((bullets, colIdx) => {
       slide.addShape(pptx.ShapeType.rect, {
         x: colX[colIdx], y: rowY, w: COL_W, h: rowH,
-        fill: { color: MINT }, line: { color: CELL_BORDER, width: 0.75 }
+        fill: { color: CELL_FILL }, line: { color: CELL_BORDER, width: 0.75 }
       });
       slide.addText(
         bullets.map(b => ({
           text: `● ${b}`,
-          options: { fontFace: FONT, fontSize: 5.5, color: NAVY, breakType: 'none' }
+          options: { fontFace: FONT, fontSize: 5.5, color: INK, breakType: 'none' }
         })),
         {
           x: colX[colIdx] + CELL_INSET_X, y: rowY + 0.03,
@@ -411,7 +421,7 @@ function addTable3ColSlide(pptx, {
     if (rowIdx < rows.length - 1) {
       slide.addShape(pptx.ShapeType.line, {
         x: 0.539, y: rowY + rowH + 0.03, w: 8.96, h: 0,
-        line: { color: DIVIDER_GREY, width: 0.75, dashType: 'dash' }
+        line: { color: GUIDE, width: 0.75, dashType: 'dash' }
       });
     }
   });
@@ -420,7 +430,7 @@ function addTable3ColSlide(pptx, {
   const summaryDivY = contentStartY + rows.length * rowSpacing - 0.05;
   slide.addShape(pptx.ShapeType.line, {
     x: 0.539, y: summaryDivY, w: 8.96, h: 0,
-    line: { color: DIVIDER_GREY, width: 0.75, dashType: 'dash' }
+    line: { color: GUIDE, width: 0.75, dashType: 'dash' }
   });
 
   // Summary row
@@ -429,19 +439,19 @@ function addTable3ColSlide(pptx, {
 
   slide.addText(summaryLabel, {
     x: GRID_LEFT, y: summaryY, w: ROW_LABEL_W, h: summaryH,
-    fontFace: FONT, fontSize: 8, bold: true, color: DARK_TEAL,
+    fontFace: FONT, fontSize: 8, bold: true, color: INK,
     align: 'center', valign: 'middle', margin: 0
   });
 
   summary.forEach((items, colIdx) => {
     slide.addShape(pptx.ShapeType.rect, {
       x: colX[colIdx], y: summaryY, w: COL_W, h: summaryH,
-      fill: { color: MINT }, line: { color: CELL_BORDER, width: 0.75 }
+      fill: { color: CELL_FILL }, line: { color: CELL_BORDER, width: 0.75 }
     });
     slide.addText(
       items.map(item => ({
         text: `✓ ${item}`,
-        options: { fontFace: FONT, fontSize: 6.5, bold: true, color: NAVY, breakType: 'none' }
+        options: { fontFace: FONT, fontSize: 6.5, bold: true, color: INK, breakType: 'none' }
       })),
       {
         x: colX[colIdx] + CELL_INSET_X, y: summaryY + 0.03,
@@ -453,27 +463,27 @@ function addTable3ColSlide(pptx, {
 
   // Footnotes / source
   const footText = [];
-  if (footnotes) footText.push({ text: footnotes, options: { fontFace: FONT, fontSize: 8, color: SAND } });
-  if (source) footText.push({ text: source, options: { fontFace: FONT, fontSize: 8, italic: true, color: SAND } });
+  if (footnotes) footText.push({ text: footnotes, options: { fontFace: FONT, fontSize: 8, color: MUTED } });
+  if (source) footText.push({ text: source, options: { fontFace: FONT, fontSize: 8, italic: true, color: MUTED } });
   if (footText.length) {
     slide.addText(footText, { x: 0.842, y: 5.086, w: 9.0, h: 0.2, valign: 'bottom', margin: 0 });
   }
 
   // Bottom bar
   slide.addShape(pptx.ShapeType.rect, {
-    x: 0, y: 5.525, w: SLIDE_W, h: 0.1, fill: { color: TEAL }
+    x: 0, y: 5.525, w: SLIDE_W, h: 0.007, fill: { color: GUIDE }
   });
 
   // Corner triangle + page badge
   slide.addShape(pptx.ShapeType.rtTriangle, {
-    x: 9.118, y: -0.018, w: 0.865, h: 0.9, fill: { color: NAVY }, rotate: 270
+    x: 9.118, y: -0.018, w: 0.865, h: 0.9, fill: { color: INK }, rotate: 270
   });
   slide.addShape(pptx.ShapeType.ellipse, {
     x: 9.589, y: 0.109, w: 0.3, h: 0.3, fill: { color: 'FFFFFF' }
   });
   slide.addText(String(slideNumber), {
     x: 9.589, y: 0.109, w: 0.3, h: 0.3,
-    fontFace: 'Calibri', fontSize: 12, color: '000000',
+    fontFace: FONT, fontSize: 12, color: '1B3A5C',
     align: 'center', valign: 'middle', margin: 0
   });
 

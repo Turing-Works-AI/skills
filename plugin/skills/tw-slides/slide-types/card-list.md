@@ -31,8 +31,8 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 ┌──────────────────────────────────────────────────────────┐
 │            [ To discuss ]                    [Page badge] │
 │                                                          │
-│  Action title (large, bold, navy)                        │
-│  Lead subtitle (teal, optional)                          │
+│  Action title (large, SemiBold, ink)                     │
+│  Lead subtitle (blue-grey, optional)                     │
 │                                                          │
 │  ┌─────────────────────────────────────────────────────┐ │
 │  │ (1)  Issue title          Metric     [ Category ]   │ │
@@ -55,12 +55,12 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 
 These choices were made during the Lyka AP engagement and represent Alasdair's preferred treatment for this slide type.
 
-1. **Title treatment**: Large bold (~24pt) Midnight Navy — significantly larger than the 12pt teal action titles used on left-panel situation slides. This slide type leads with impact, not a section label.
+1. **Title treatment**: Large SemiBold (~24pt) ink `#1B3A5C` — significantly larger than the 12pt action titles used on left-panel situation slides. This slide type leads with impact, not a section label.
 2. **Issue title and metric are separated by whitespace**, not concatenated with an em dash. The title sits left; the metric sits to its right with a clear gap. This creates a scannable two-column effect on the title row.
 3. **Category tags are vertically centred** on the right edge of each card, not placed at the top-right corner.
 4. **Number badges are vertically centred** within the card, not top-aligned.
-5. **Lead subtitle** (teal, ~14pt) appears below the action title when the slide has a supporting statement. Omit when not needed.
-6. **Sticker uses the existing deck sticker style** (light blue `#BBD6EE` fill) — not the Aqua accent colour.
+5. **Lead subtitle** (blue-grey `#5C7189`, ~14pt) appears below the action title when the slide has a supporting statement. Omit when not needed.
+6. **Sticker uses the existing deck sticker style** (light blue `#BFD3E6` fill) — not the Guide accent colour.
 
 ---
 
@@ -88,10 +88,10 @@ These choices were made during the Lyka AP engagement and represent Alasdair's p
 |----------|-------|
 | Position | x: 0.7 in, y: 0.55 in |
 | Size | w: 8.6 in, h: auto (1–2 lines) |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 24pt |
 | Weight | Bold |
-| Colour | `#072E45` (Midnight Navy) |
+| Colour | `#1B3A5C` (Ink) |
 | Alignment | Left |
 | Line spacing | 115% |
 
@@ -100,10 +100,10 @@ These choices were made during the Lyka AP engagement and represent Alasdair's p
 | Property | Value |
 |----------|-------|
 | Position | x: 0.7 in, y: below title |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 14pt |
 | Weight | Regular |
-| Colour | `#518C94` (Teal) |
+| Colour | `#5C7189` (Blue-grey) |
 | Alignment | Left |
 
 ### Card background
@@ -111,7 +111,7 @@ These choices were made during the Lyka AP engagement and represent Alasdair's p
 | Property | Value |
 |----------|-------|
 | Shape | Rounded rectangle |
-| Fill | `#E8E8E4` (Light Stone) |
+| Fill | `#FFFFFF` (White) |
 | Border | None |
 | Corner radius | adj = 12000 |
 
@@ -121,10 +121,10 @@ These choices were made during the Lyka AP engagement and represent Alasdair's p
 |----------|-------|
 | Shape | Ellipse |
 | Size | 0.34 × 0.34 in |
-| Fill | `#0E425B` (Deep Teal) |
+| Fill | `#1B3A5C` (Ink) |
 | Vertical position | Centred within card height |
 | Horizontal position | 0.15 in from card left edge |
-| Text | Inter Tight, 11pt, Bold, `#FFFFFF`, Centre |
+| Text | Plus Jakarta Sans, 11pt, Bold, `#FFFFFF`, Centre |
 
 ### Title row
 
@@ -135,10 +135,10 @@ Two text elements on the same horizontal line, to the right of the badge:
 | Property | Value |
 |----------|-------|
 | Position | 0.6 in from card left edge |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 12pt |
 | Weight | Bold |
-| Colour | `#072E45` (Midnight Navy) |
+| Colour | `#1B3A5C` (Ink) |
 | Vertical position | ~0.08 in from card top |
 
 **Metric:**
@@ -146,10 +146,10 @@ Two text elements on the same horizontal line, to the right of the badge:
 | Property | Value |
 |----------|-------|
 | Position | Right of issue title, separated by whitespace (~0.3 in gap or tab) |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 12pt |
 | Weight | Regular |
-| Colour | `#518C94` (Teal) |
+| Colour | `#5C7189` (Blue-grey) |
 
 The title and metric sit on the same baseline. Keep the metric visually distinct through colour alone — no separator character (no em dash, no pipe).
 
@@ -159,10 +159,10 @@ The title and metric sit on the same baseline. Keep the metric visually distinct
 |----------|-------|
 | Position | Below title row, 0.6 in from card left edge |
 | Width | Card width − 0.75 in (full width below title, ignoring tag) |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 10pt |
 | Weight | Regular |
-| Colour | `#3A3A3A` (Body) |
+| Colour | `#1B3A5C` (Body) |
 | Line spacing | 125% |
 
 ### Category tag
@@ -170,11 +170,11 @@ The title and metric sit on the same baseline. Keep the metric visually distinct
 | Property | Value |
 |----------|-------|
 | Shape | Rounded rectangle pill |
-| Fill | `#E8E8E4` (Light Stone) with visible border `#ADCFC9` (Aqua), 0.75pt |
+| Fill | `#FFFFFF` (White) with visible border `#BFD3E6` (Guide), 0.75pt |
 | Size | ~1.5 × 0.24 in |
 | Corner radius | adj = 16000 |
 | Position | Right edge of card (0.15 in inset), **vertically centred** within card |
-| Text | Inter Tight, 10pt, Italic, `#518C94` (Teal), Centre |
+| Text | Plus Jakarta Sans, 10pt, Italic, `#5C7189` (Blue-grey), Centre |
 
 ### Sticker ("To discuss" / status)
 
@@ -182,9 +182,9 @@ The title and metric sit on the same baseline. Keep the metric visually distinct
 |----------|-------|
 | Position | Centred horizontally at top of slide, y ≈ -0.01 in (peeking in) |
 | Size | ~2.7 × 0.2 in |
-| Fill | `#BBD6EE` (Light Blue — matches existing deck sticker) |
-| Border | 0.75pt `#333333` |
-| Text | Inter Tight Light, 12pt, `#072E45`, Centre |
+| Fill | `#BFD3E6` (Guide — matches existing deck sticker) |
+| Border | 0.75pt `#1B3A5C` |
+| Text | Plus Jakarta Sans Light, 12pt, `#1B3A5C`, Centre |
 
 ### Source citation
 
@@ -192,11 +192,11 @@ The title and metric sit on the same baseline. Keep the metric visually distinct
 |----------|-------|
 | Position | x: 0.7 in, y: 5.08 in |
 | Size | w: 8.6 in, h: 0.25 in |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 8pt |
 | Weight | Regular |
 | Style | Italic |
-| Colour | `#B8AD90` (Sand) |
+| Colour | `#5C7189` (Blue-grey) |
 
 ### Corner triangle + page badge
 
@@ -213,7 +213,7 @@ Per global constants (see `../brand.md`).
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `action_title` | string | Yes | Main slide heading (conclusion statement) |
-| `lead` | string | No | Teal subtitle below the action title |
+| `lead` | string | No | Blue-grey subtitle below the action title |
 | `sticker` | string | No | Status badge (e.g. "To discuss", "Preliminary") |
 | `cards` | object[] | Yes | Array of card objects (see below) |
 | `source` | string | No | Source citation |

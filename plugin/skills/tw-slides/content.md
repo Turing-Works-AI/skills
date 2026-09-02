@@ -59,7 +59,7 @@ Name the scaling pressure they're under in one conclusion. Example shape: *"{{Cl
 `left-third-title`
 
 ### Variant
-`bullets` with `numbered: true` — numbered teal circles, each with a bold title and a continuation sentence. Numbered (not dotted) because objectives are a discrete, finite set the sponsor can count off.
+`bullets` with `numbered: true` — numbered ink circles, each with a SemiBold title and a continuation sentence. Numbered (not dotted) because objectives are a discrete, finite set the sponsor can count off.
 
 ### Purpose
 Frame the engagement around outcomes the client cares about, not solutions we sell. Must reflect what was agreed on the conceptual agreement call.
