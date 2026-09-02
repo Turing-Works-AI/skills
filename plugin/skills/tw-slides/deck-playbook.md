@@ -82,7 +82,7 @@ Every content slide has three zones:
 **Bottom — Supporting information**
 - **Footnotes**: clarifications for specific data points (numbered superscripts)
 - **Source citation**: always present if data is external — "Source: [origin]" — bottom-left
-- **Page number**: bottom-right, inside a dark teal badge
+- **Page number**: bottom-right, inside an ink badge
 
 ---
 
@@ -138,10 +138,10 @@ Do not populate the deck until the Ghost Deck has been agreed. Writing content i
 Run through this before finalising any deck:
 
 **Brand**
-- [ ] All text boxes use Inter Tight explicitly
-- [ ] Title slide: dark `#072E45` background
-- [ ] Content slides: `#F9F9F7` or white background
-- [ ] CTA/divider slides: dark teal background
+- [ ] All text boxes use Plus Jakarta Sans explicitly
+- [ ] Title slide: dark `#1B3A5C` background
+- [ ] Content slides: `#FFFFFF` or white background
+- [ ] CTA/divider slides: ink background
 - [ ] Slide number badges on all content slides
 - [ ] No underline accents beneath titles
 - [ ] Colours from palette only — no off-brand defaults

@@ -30,7 +30,7 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 │              [To discuss]                                │  ← sticker
 │                                                          │
 │  Action title (bold, large, inherited theme style)       │
-│  Subtitle (teal, smaller)                                │
+│  Subtitle (blue-grey, smaller)                           │
 │                                                          │
 │  ┌─ chevron ─┐  ┌─ chevron ─┐  ┌─ chevron ─┐           │
 │  │①Stage 1   │→ │②Stage 2   │→ │③Stage 3   │           │
@@ -58,8 +58,8 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 - **Full-width layout** — no left panel. The title and subtitle sit directly on the white background, not inside a branded panel.
 - **Square boxes** — activity and output boxes use sharp corners (no rounded rectangles). This was an explicit design choice.
 - **Separate activity and output boxes** — each column has two distinct boxes stacked vertically: the larger activity box on top and a shorter output box below. Do not combine them into a single box.
-- **Consistent box fill** — both activity and output boxes use Light Stone `#E8E8E4`. Do not use different fills to distinguish them; the teal "Output" label provides sufficient visual separation.
-- **Chevron shapes** — stage headers use preset chevron geometry, not rectangles. The first/active stage uses Deep Teal `#0E425B`; subsequent stages use Steel Blue `#1F4C60`.
+- **Consistent box fill** — both activity and output boxes are white `#FFFFFF` with a 0.8pt guide `#BFD3E6` border. Do not use different fills to distinguish them; the blue-grey "Output" label provides sufficient visual separation.
+- **Chevron shapes** — stage headers use preset chevron geometry, not rectangles. The first/active stage uses Ink `#1B3A5C`; subsequent stages use Ink `#1B3A5C`.
 - **Title preserves slide theme** — the action title inherits from the slide master/placeholder. Do not apply explicit brand fonts or colours to it when editing an existing deck.
 
 ---
@@ -109,10 +109,10 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Shape | Text box |
 | Fill | None |
 | Text | `{{subtitle}}` (e.g. "Based on week 1 findings, several fixes can be initiated immediately") |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 12pt |
 | Weight | Regular |
-| Colour | `#518C94` (Teal) |
+| Colour | `#5C7189` (Blue-grey) |
 | Alignment | Left |
 
 ### Element 3: Sticker
@@ -120,13 +120,13 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Property | Value |
 |----------|-------|
 | Shape | Rectangle |
-| Fill | `#ADCFC9` (Aqua) |
+| Fill | `#BFD3E6` (Guide) |
 | Border | None |
 | Text | `{{sticker}}` (e.g. "For discussion", "To discuss") |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 10pt |
 | Weight | Bold |
-| Colour | `#0E425B` (Deep Teal) |
+| Colour | `#1B3A5C` (Ink) |
 | Alignment | Centre |
 
 ### Elements 4–6: Chevron headers
@@ -134,16 +134,16 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Property | Value |
 |----------|-------|
 | Shape | Chevron (preset geometry `chevron`) |
-| Fill (active/first stage) | `#0E425B` (Deep Teal) |
-| Fill (subsequent stages) | `#1F4C60` (Steel Blue) |
+| Fill (active/first stage) | `#1B3A5C` (Ink) |
+| Fill (subsequent stages) | `#1B3A5C` (Ink) |
 | Border | None |
 
 **Text structure (multi-run):**
 
 | Run | Content | Font | Size | Weight | Colour |
 |-----|---------|------|------|--------|--------|
-| 1 | `"Stage N \| "` | Inter Tight | 11pt | Bold | `#FFFFFF` |
-| 2 | `{{stage_name}}` (e.g. "Diagnose") | Inter Tight | 11pt | Regular | `#FFFFFF` |
+| 1 | `"Stage N \| "` | Plus Jakarta Sans | 11pt | Bold | `#FFFFFF` |
+| 2 | `{{stage_name}}` (e.g. "Diagnose") | Plus Jakarta Sans | 11pt | Regular | `#FFFFFF` |
 
 ### Elements 7–9: Number badges
 
@@ -153,10 +153,10 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Fill | `#FFFFFF` |
 | Border | None |
 | Text | `{{stage_number}}` (1, 2, 3) |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 16pt |
 | Weight | Bold |
-| Colour | `#0E425B` (Deep Teal) |
+| Colour | `#1B3A5C` (Ink) |
 | Alignment | Centre |
 
 ### Elements 10–12: Week labels
@@ -166,10 +166,10 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Shape | Text box (transparent) |
 | Fill | None |
 | Text | `{{week_label}}` (e.g. "Week 1", "Week 1-2") |
-| Font | Inter Tight |
+| Font | Plus Jakarta Sans |
 | Size | 11pt |
 | Weight | Bold |
-| Colour | `#518C94` (Teal) |
+| Colour | `#5C7189` (Blue-grey) |
 | Alignment | Centre |
 
 ### Elements 13–15: Activity boxes
@@ -177,7 +177,7 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Property | Value |
 |----------|-------|
 | Shape | Rectangle (square corners) |
-| Fill | `#E8E8E4` (Light Stone) |
+| Fill | `#FFFFFF` (White) |
 | Border | None |
 | Inner margin | 0.12 in all sides |
 | Word wrap | Yes |
@@ -186,15 +186,15 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 
 | Paragraph | Content | Font | Size | Weight | Colour | Spacing |
 |-----------|---------|------|------|--------|--------|---------|
-| Title | `{{activity_title}}` | Inter Tight | 11pt | Bold | `#072E45` | line 120% |
-| Bullets | `"• {{bullet}}"` (one per paragraph) | Inter Tight | 11pt | Regular | `#3A3A3A` | line 125%, 5pt space before first bullet, 2pt between bullets |
+| Title | `{{activity_title}}` | Plus Jakarta Sans | 11pt | Bold | `#1B3A5C` | line 120% |
+| Bullets | `"• {{bullet}}"` (one per paragraph) | Plus Jakarta Sans | 11pt | Regular | `#1B3A5C` | line 125%, 5pt space before first bullet, 2pt between bullets |
 
 ### Elements 16–18: Output boxes
 
 | Property | Value |
 |----------|-------|
 | Shape | Rectangle (square corners) |
-| Fill | `#E8E8E4` (Light Stone) |
+| Fill | `#FFFFFF` (White) |
 | Border | None |
 | Inner margin | 0.12 in all sides |
 | Word wrap | Yes |
@@ -203,15 +203,15 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 
 | Paragraph | Content | Font | Size | Weight | Colour | Spacing |
 |-----------|---------|------|------|--------|--------|---------|
-| Label | `"Output"` | Inter Tight | 11pt | Bold | `#518C94` (Teal) | line 120% |
-| Value | `{{output_text}}` | Inter Tight | 11pt | Regular | `#3A3A3A` | line 125%, 2pt space before |
+| Label | `"Output"` | Plus Jakarta Sans | 11pt | Bold | `#5C7189` (Blue-grey) | line 120% |
+| Value | `{{output_text}}` | Plus Jakarta Sans | 11pt | Regular | `#1B3A5C` | line 125%, 2pt space before |
 
 ### Element 19: Bottom accent bar
 
 | Property | Value |
 |----------|-------|
 | Shape | Rectangle |
-| Fill | `#518C94` (Teal) |
+| Fill | `#5C7189` (Blue-grey) |
 | Border | None |
 
 ---
@@ -243,7 +243,7 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `action_title` | string | Yes | Conclusion statement for the slide |
-| `subtitle` | string | No | Supporting context line below title, in teal |
+| `subtitle` | string | No | Supporting context line below title, in blue-grey `#5C7189` |
 | `sticker` | string | No | Status badge text (e.g. "For discussion") |
 | `stages` | object[] | Yes | Array of stage objects (see below) |
 | `slide_number` | number | No | Page number (displayed bottom-left if present) |
@@ -254,7 +254,7 @@ After build, run the visual-QA loop from `anthropic-skills:pptx`.
 stages:
   - number: 1
     name: "Diagnose"
-    active: true            # Deep Teal fill; false = Steel Blue
+    active: true            # Ink fill; false = Ink
     week_label: "Week 1"
     activity_title: "Problem-solving sessions"
     bullets:

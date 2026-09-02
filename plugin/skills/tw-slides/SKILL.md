@@ -1,6 +1,6 @@
 ---
 name: tw-slides
-description: Master skill for creating, editing, or reviewing Turing Works slide decks and client presentations. Combines Turing Works brand standards (colours, typography, layouts) with consulting-grade slide craft (MBB structure, action titles, vertical/horizontal flow, MECE reasoning). Use this skill whenever Alasdair asks to create a Turing Works presentation, client proposal, pitch deck, workshop deck, or any branded output. Also trigger when the user says "make it on-brand", "use our brand colours", "Turing Works style", "ghost deck", "action title", or references building slides for a client. This skill supersedes all generic design and slide defaults — always consult it before generating branded content.
+description: Master skill for creating, editing, or reviewing Turing Works slide decks and client presentations. Applies the Turing Works visual identity (defined in the `turing-works-brand` skill) to decks, and adds consulting-grade slide craft (MBB structure, action titles, vertical/horizontal flow, MECE reasoning). Use this skill whenever the user asks to create a Turing Works presentation, client proposal, pitch deck, workshop deck, or any branded deck. Also trigger when the user says "make it on-brand", "use our brand colours", "Turing Works style", "ghost deck", "action title", or references building slides for a client. For decks, this skill supersedes all generic design and slide defaults. The identity itself — palette, symbol, type — is owned by `turing-works-brand`; this skill is its deck-specific application and must never contradict it.
 ---
 
 # TW Slides — Turing Works Slide Craft & Brand Skill
@@ -13,7 +13,8 @@ This skill governs all Turing Works slide creation. It is split into focused fil
 
 | File | When to read |
 |------|--------------|
-| `brand.md` | Any time you're placing or styling visual elements — colours, typography, layout patterns, grid, shapes, shared constants |
+| `turing-works-brand` skill | **Read first for any question of identity** — the symbol, the palette and why it is what it is, type rules, the reconciliation chart, copy tone. That skill is the source of truth |
+| `brand.md` | Any time you're placing or styling visual elements on a slide — the deck-specific application of the identity: layout patterns, grid, shapes, shared constants |
 | `writing-rules.md` | Any time you're writing or editing slide copy — action titles, UK/AUS spelling, GMAT grammar, concision, tone, bullet punctuation |
 | `deck-playbook.md` | When planning or finishing a deck — 5-section spine, Ghost Deck, horizontal flow, Pre-Flight checklist, Toothbrush Test |
 | `content.md` | When deciding *what* to put on a slide — content patterns per deck section, each naming the slide type to render it on |
@@ -30,9 +31,10 @@ This skill owns the **content and design**: brand standards, writing rules, deck
 
 Division of labour:
 
-- **Always render through `slide-types/*.md`.** Those layouts, plus the matching `*-example.pptx` and `*-example.pdf` reference files, are the source of truth for what a Turing Works slide looks like. Never substitute the generic palettes, fonts, or layouts in `anthropic-skills:pptx` — those are explicitly overridden by `brand.md` and the slide-type templates here.
-- **Default build path = template duplication.** When the slide type has a `*-example.pptx`, use the `anthropic-skills:pptx` editing workflow (`editing.md`) to unpack it, duplicate the relevant slide, swap the text, clean and repack. This preserves brand fidelity and avoids code drift.
-- **Fallback = code generation.** If the slide type has no example file, or the requested variant is structurally outside what the example covers (e.g. 5 cards when the example has 3), fall back to the `pptxgenjs` code template at the bottom of the slide-type file.
+- **Always render through `slide-types/*.md`.** Those layouts are the source of truth for what a Turing Works slide looks like. Never substitute the generic palettes, fonts, or layouts in `anthropic-skills:pptx` — those are explicitly overridden by `brand.md` and the slide-type templates here.
+- **⚠️ The `*-example.pptx` and `*-example.pdf` files are pre-migration.** They still carry the retired teal/navy/cream palette and Inter Tight. **Do not duplicate them and do not treat them as the visual source of truth** until they have been regenerated. They are kept only as layout and geometry references — read them for *where things sit*, never for *what colour or font they are*.
+- **Default build path = code generation.** Build from the `pptxgenjs` code template at the bottom of the slide-type file, which carries the current palette and font.
+- **Template duplication is suspended** for any slide type whose example file has not been regenerated. If you do duplicate one, you must restate every fill, line and font colour from `brand.md` before shipping — every one of them is wrong in the source file.
 - **Visual QA is mandatory.** After build, always run the `anthropic-skills:pptx` visual-QA loop: render slides to JPGs (`soffice` + `pdftoppm`), have a subagent inspect them, fix issues, re-verify.
 
 ---
