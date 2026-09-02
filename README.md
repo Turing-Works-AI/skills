@@ -27,6 +27,7 @@ skills/
 | `proposal-letter` | Converting a Turing Works slide deck or proposal into a BCG-style Word document (.docx). Triggers on "letter version", "word version of the deck", "make this a doc", "BCG format". |
 | `tw-agreements` | Generating a Turing Works client engagement agreement as a .docx. Triggers on "agreement", "contract", "engagement letter", "SOW", "statement of work". |
 | `tw-data-access-request` | Creating a branded data access request document for a new client engagement. Triggers on "DAR", "data access", "access request", "onboarding doc", "what access do we need". |
+| `Brand/turing-works-brand` | The Turing Works visual identity — the chain symbol and its geometry, the ink/paper/vermilion palette, Plus Jakarta Sans type rules, layout, the reconciliation chart, and copy tone. Triggers on "brand this", "make it look like TW", the TW logo/mark/symbol, brand colours, blueprint blue, vermilion, or "is this on brand". |
 | `the-algorithm` | Interactive decision framework adapted from Elon Musk's five-step method. Walks through discrete AskUserQuestion prompts — one at a time — to find the real bottleneck before acting. **Now lives in its own repo:** [jmaulana0/the-algorithm](https://github.com/jmaulana0/the-algorithm). The copy in this plugin is kept in sync but the upstream source is there. |
 
 ---
